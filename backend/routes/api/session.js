@@ -1,14 +1,31 @@
 const express = require("express");
-const router = express.Router();
 
+// Validation utils.
+const { check } = require("express-validator");
+const { handleValidationErrors } = require("../../utils/validation");
+// Auth utils.
 const { setTokenCookie, restoreUser } = require("../../utils/auth");
 const asyncHandler = require("express-async-handler");
+// User model.
 const { User } = require("../../db/models");
+
+const router = express.Router();
+const validateLogin = [
+  check("credential")
+    .exists({ checkFalsy: true })
+    .notEmpty()
+    .withMessage("Please provide a valid email or username."),
+  check("password")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a password."),
+  handleValidationErrors,
+];
 
 // Will house resources for route paths beginning with /api/session.
 // Log in
 router.post(
   "/",
+  validateLogin,
   asyncHandler(async (req, res, next) => {
     const { credential, password } = req.body;
 
