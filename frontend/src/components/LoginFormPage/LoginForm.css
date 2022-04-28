@@ -57,6 +57,7 @@ Main_div_login is the main container for the whole page.
   height: 3rem;
   background-color: black;
   width: 100%;
+  height: 150px;
 }
 
 .nav_container_login {
@@ -79,8 +80,18 @@ Main_div_login is the main container for the whole page.
   height: 48px;
 }
 
-.markr_link_image {
+/* .markr_link_image {
   width: 98px;
   border-style: none;
-  height: 100%;
+  height: 30px;
+} */
+
+.markr_link_image {
+  position: absolute;
+  width: 180px;
+  border-style: none;
+  height: 180px;
+  border-radius: 30px;
+  /* transform: translateY(100px); */
+  transform: translateX(-50px);
 }
