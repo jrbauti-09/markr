@@ -5,3 +5,7 @@
   border-radius: 10px;
   box-shadow: 2px 2px 2px 1px rgb(243, 239, 239);
 }
+
+.dashboard_header {
+  color: white;
+}
