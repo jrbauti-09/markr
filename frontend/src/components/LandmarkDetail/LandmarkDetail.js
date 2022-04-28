@@ -1,19 +1,40 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getLandmarks } from "../../store/landmark";
 import { getReviews } from "../../store/review";
 
+//Google api
+import {
+  GoogleMap,
+  useLoadScript,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
+
 // We will useParams to find landmark Id.
 // will use the .find method to locate the landmark we want.
+
+const libraries = ["places"];
+const mapContainerStyle = {
+  width: "500px",
+  height: "500px",
+};
+
+// const center = {
+//   lat: 48.8566,
+//   lng: 2.3522,
+// };
 
 export default function LandmarkDetail() {
   const { landMarkId } = useParams();
   const dispatch = useDispatch();
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const [id, setId] = useState(null);
 
   const landMarks = useSelector((state) => Object.values(state.landmarks));
-  // we can filter through reviews possibly.
   const reviews = useSelector((state) => Object.values(state.reviews));
 
   //   console.log(reviews)
@@ -31,7 +52,43 @@ export default function LandmarkDetail() {
     return item.id == landMarkId;
   });
 
-  // reviews and landMark.
+  useEffect(() => {
+    setLatitude(parseFloat(landMark.lat));
+    setLongitude(parseFloat(landMark.lng));
+  }, [id, landMarks, latitude, longitude]);
 
-  return <div>LandmarkDetail</div>;
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    libraries,
+  });
+
+  if (loadError) return "Error loading maps";
+  if (!isLoaded) return "Loading Maps";
+
+  return (
+    <div className="map_div">
+      <h1 className="map_header">
+        LandMark{" "}
+        <span role="img" aria-label="flag">
+          🚩
+        </span>
+      </h1>
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        zoom={14}
+        center={{
+          lat: latitude,
+          lng: longitude,
+        }}
+      >
+        <Marker
+          // we can grab lat/lng info
+          position={{
+            lat: latitude,
+            lng: longitude,
+          }}
+        />
+      </GoogleMap>
+    </div>
+  );
 }
