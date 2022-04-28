@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const sessionRouter = require("./session.js");
 const usersRouter = require("./users.js");
 const landmarksRouter = require("./landmarks.js");
+const reviewsRouter = require("./reviews.js");
 
 const router = require("express").Router();
 
@@ -16,5 +17,6 @@ const { User } = require("../../db/models");
 router.use("/session", sessionRouter);
 router.use("/users", usersRouter);
 router.use("/landmarks", landmarksRouter);
+router.use("/reviews", reviewsRouter);
 
 module.exports = router;
