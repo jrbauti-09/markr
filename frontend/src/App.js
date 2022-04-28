@@ -6,6 +6,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import MainPage from "./components/MainPage/MainPage.js";
 import Navigation from "./components/Navigation";
 import Map from "./components/Maps/Map";
+import Dashboard from "./components/Dashboard/Dashboard";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
           </Route>
           <Route path="/maps">
             <Map />

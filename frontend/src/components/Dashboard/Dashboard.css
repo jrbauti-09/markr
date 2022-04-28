@@ -1,0 +1,11 @@
+* {
+  color: white;
+}
+
+.image_tile {
+  width: 550px;
+  height: 530px;
+  margin: 2px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 1px rgb(243, 239, 239);
+}

@@ -25,5 +25,25 @@ router.get(
     });
   })
 );
+// Post a review on landmarkId.
+router.post(
+  "landmarks/:landmarkId",
+  asyncHandler(async (req, res, next) => {
+    const landMarkId = req.params.landmarkId;
+    const { userId, review } = req.body;
+
+    const newReview = await Review.create({
+      userId,
+      landMarkId,
+      review,
+    });
+
+    if (newReview) {
+      res.json({
+        newReview,
+      });
+    }
+  })
+);
 
 module.exports = router;

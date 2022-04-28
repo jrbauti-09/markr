@@ -13,7 +13,7 @@ router.get(
   "/",
   asyncHandler(async (req, res, next) => {
     const landmark = await Landmark.findAll();
-
+    // console.log(landmark);
     res.json({
       landmark,
     });
