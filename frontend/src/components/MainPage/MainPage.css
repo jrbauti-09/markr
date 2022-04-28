@@ -8,6 +8,8 @@
   height: 92vh;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Raleway:wght@100;300&display=swap");
 /*
   animation
 */
@@ -29,7 +31,7 @@ body {
 
 .slideshow {
   width: 100%;
-  height: 93vh;
+  height: 91vh;
   position: relative;
   overflow: hidden;
 }
@@ -77,7 +79,7 @@ body {
 
 .slideshow-item-text h5 {
   font-size: 5rem;
-  /* font-family: 'Raleway', sans-serif; */
+  font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 2.5rem;
@@ -175,4 +177,27 @@ animation ^^
   margin: 0;
   padding: 0;
   color: hsla(0, 0%, 100%, 0.6);
+}
+
+.footer_bot_ul {
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  list-style: none;
+  padding: 2px;
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+.fa-github {
+  margin-right: 10px;
+  width: 25px;
+}
+
+.fa-linkedin {
+  width: 30px;
 }

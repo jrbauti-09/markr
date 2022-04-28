@@ -78,6 +78,28 @@ export default function MainPage() {
               <li className="footer_li">CSS</li>
             </ul>
           </div>
+          <div className="footer_bot_row">
+            <ul className="footer_bot_ul">
+              <li>
+                <a
+                  href="https://github.com/jrbauti-09"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="fab fa-github"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/joshua-raphael-bautista-8a019a11b/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="fab fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </footer>
     </>
