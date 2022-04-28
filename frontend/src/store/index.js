@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import sessionReducer from "./session";
 import thunk from "redux-thunk";
 import landMarkReducer from "./landmark";
+import reviewReducer from "./review";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   landmarks: landMarkReducer,
+  reviews: reviewReducer,
 });
 
 let enhancer;

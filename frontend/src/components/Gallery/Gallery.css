@@ -24,6 +24,12 @@
   border-radius: 5px;
 }
 
+.modal_link {
+  transform: translateX(-60px);
+  font-size: large;
+  color: black;
+}
+
 @media (max-width: 991px) {
   .gallery {
     -webkit-column-count: 2;

@@ -7,6 +7,7 @@ import MainPage from "./components/MainPage/MainPage.js";
 import Navigation from "./components/Navigation";
 import Map from "./components/Maps/Map";
 import Dashboard from "./components/Dashboard/Dashboard";
+import LandmarkDetail from "./components/LandmarkDetail/LandmarkDetail";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route path="/maps">
             <Map />
+          </Route>
+          <Route path="/landmarks/:landMarkId">
+            <LandmarkDetail />
           </Route>
         </Switch>
       )}
