@@ -11,7 +11,7 @@ export default function MainPage() {
         <div className="slideshow-item">
           <img src={paris} alt=""></img>
           <div className="slideshow-item-text">
-            <h5>Paris, FR</h5>
+            <h5>Eiffel Tower, Paris</h5>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
@@ -30,7 +30,7 @@ export default function MainPage() {
         <div className="slideshow-item">
           <img src={china} alt=""></img>
           <div className="slideshow-item-text">
-            <h5>Great Wall, CN</h5>
+            <h5>Great Wall</h5>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
@@ -49,7 +49,7 @@ export default function MainPage() {
         <div className="slideshow-item">
           <img src={rio} alt=""></img>
           <div className="slideshow-item-text">
-            <h5>Rio de janeiro, BR</h5>
+            <h5>Christ the Redeemer, Rio de Janeiro</h5>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text

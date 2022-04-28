@@ -43,6 +43,7 @@ export default function Map() {
         center={center}
       >
         <Marker
+          // we can grab lat/lng info
           position={{
             lat: 48.8566,
             lng: 2.3522,
