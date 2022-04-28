@@ -1,0 +1,51 @@
+.main_div {
+  background-image: url("../../../public/images/Aztec.jfif");
+  position: relative;
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 92vh;
+}
+
+.main_footer {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  background-color: black;
+}
+
+.footer_container {
+  background-color: #000;
+  position: relative;
+  color: hsla(0, 0%, 100%, 0.6);
+  margin: 0 auto;
+  width: 95%;
+  display: block;
+  font-size: 14px;
+  line-height: 1.2em;
+  text-align: center;
+}
+
+.footer_top_row {
+  display: flex;
+  padding: 16px 0;
+  color: hsla(0, 0%, 100%, 0.6);
+  font-size: 14px;
+  line-height: 1.2em;
+}
+
+.footer_ul {
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: hsla(0, 0%, 100%, 0.6);
+}
