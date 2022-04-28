@@ -5,19 +5,20 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import MainPage from "./components/MainPage/MainPage.js";
 import Navigation from "./components/Navigation";
+import Map from "./components/Maps/Map";
 import * as sessionActions from "./store/session";
 
 function App() {
   const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoad, setIsLoad] = useState(false);
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(sessionActions.restoreUser()).then(() => setIsLoad(true));
   }, [dispatch]);
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
+      <Navigation isLoad={isLoad} />
+      {isLoad && (
         <Switch>
           <Route exact path="/">
             <MainPage />
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/maps">
+            <Map />
           </Route>
         </Switch>
       )}
