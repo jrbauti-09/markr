@@ -105,8 +105,8 @@ Main_div_login is the main container for the whole page.
   border-style: none;
   height: 180px;
   border-radius: 30px;
-  /* transform: translateY(100px); */
-  transform: translateX(-50px);
+  transform: translateY(60px);
+  /* transform: translateX(-50px); */
 }
 
 .form_logo {
@@ -151,4 +151,8 @@ Sign-up
 .sign_up_link {
   font-size: small;
   color: #792692;
+}
+
+.sign_up_link:hover {
+  color: #3f51b5;
 }

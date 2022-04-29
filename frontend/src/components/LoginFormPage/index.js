@@ -28,19 +28,17 @@ export default function LoginFormPage() {
   return (
     <>
       <div className="main_div_login">
-        <nav className="nav_bar_login">
-          <div className="nav_container_login">
-            <span className="markr_icon_login">
-              <Link to="/" className="markr_link">
-                <img
-                  src={Markr}
-                  className="markr_link_image"
-                  alt="markR logo"
-                ></img>
-              </Link>
-            </span>
-          </div>
-        </nav>
+        <div className="nav_container_login">
+          <span className="markr_icon_login">
+            <Link to="/" className="markr_link">
+              <img
+                src={Markr}
+                className="markr_link_image"
+                alt="markR logo"
+              ></img>
+            </Link>
+          </span>
+        </div>
         <div className="form_section">
           <div className="form_case">
             <form onSubmit={handleSubmit}>

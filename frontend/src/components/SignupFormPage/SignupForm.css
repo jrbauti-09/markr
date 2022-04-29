@@ -52,3 +52,12 @@
   cursor: pointer;
   /* border: 1px solid #00c896ce; */
 }
+
+.log_in_link {
+  font-size: small;
+  color: #792692;
+}
+
+.log_in_link:hover {
+  color: #3f51b5;
+}
