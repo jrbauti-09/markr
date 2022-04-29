@@ -9,6 +9,7 @@ import configureStore from "./store";
 import * as sessionActions from "./store/session";
 import * as landMarkActions from "./store/landmark";
 import * as reviewActions from "./store/review";
+import * as userActions from "./store/user";
 
 const store = configureStore();
 
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV !== "production") {
   window.sessionActions = sessionActions;
   window.landMarkActions = landMarkActions;
   window.reviewActions = reviewActions;
+  window.userActions = userActions;
 }
 
 function Root() {

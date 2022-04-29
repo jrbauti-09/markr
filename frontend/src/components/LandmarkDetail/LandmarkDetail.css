@@ -35,6 +35,7 @@
   background-color: white;
   border-radius: 10px;
   transition: 1s;
+  width: 80%;
 }
 
 .landmark_description_container:hover {

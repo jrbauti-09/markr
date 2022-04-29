@@ -3,11 +3,13 @@ import sessionReducer from "./session";
 import thunk from "redux-thunk";
 import landMarkReducer from "./landmark";
 import reviewReducer from "./review";
+import userReducer from "./user";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   landmarks: landMarkReducer,
   reviews: reviewReducer,
+  users: userReducer,
 });
 
 let enhancer;
