@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getLandmarks } from "../../store/landmark";
 import { getReviews } from "../../store/review";
+import LandmarkReview from "../LandmarkReview/LandmarkReview";
 
 //Google api
 import {
@@ -21,17 +22,15 @@ const mapContainerStyle = {
   width: "500px",
   height: "500px",
 };
-
 // const center = {
 //   lat: 48.8566,
 //   lng: 2.3522,
 // };
-
 export default function LandmarkDetail() {
   const { landMarkId } = useParams();
   const dispatch = useDispatch();
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
+  //   const [latitude, setLatitude] = useState(null);
+  //   const [longitude, setLongitude] = useState(null);
   const [id, setId] = useState(null);
 
   const landMarks = useSelector((state) => Object.values(state.landmarks));
@@ -52,10 +51,13 @@ export default function LandmarkDetail() {
     return item.id == landMarkId;
   });
 
-  useEffect(() => {
-    setLatitude(parseFloat(landMark.lat));
-    setLongitude(parseFloat(landMark.lng));
-  }, [id, landMarks, latitude, longitude]);
+  //   useEffect(() => {
+  //     setLatitude(parseFloat(landMark.lat));
+  //     setLongitude(parseFloat(landMark.lng));
+  //   }, [landMarks, latitude, longitude]);
+
+  const latitude = parseFloat(landMark.lat);
+  const longitude = parseFloat(landMark.lng);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -66,29 +68,32 @@ export default function LandmarkDetail() {
   if (!isLoaded) return "Loading Maps";
 
   return (
-    <div className="map_div">
-      <h1 className="map_header">
-        LandMark{" "}
-        <span role="img" aria-label="flag">
-          🚩
-        </span>
-      </h1>
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        zoom={14}
-        center={{
-          lat: latitude,
-          lng: longitude,
-        }}
-      >
-        <Marker
-          // we can grab lat/lng info
-          position={{
+    <>
+      <div className="map_div">
+        <h1 className="map_header">
+          LandMark{" "}
+          <span role="img" aria-label="flag">
+            🚩
+          </span>
+        </h1>
+        <GoogleMap
+          mapContainerStyle={mapContainerStyle}
+          zoom={14}
+          center={{
             lat: latitude,
             lng: longitude,
           }}
-        />
-      </GoogleMap>
-    </div>
+        >
+          <Marker
+            // we can grab lat/lng info
+            position={{
+              lat: latitude,
+              lng: longitude,
+            }}
+          />
+        </GoogleMap>
+      </div>
+      <LandmarkReview reviews={reviews} />
+    </>
   );
 }
