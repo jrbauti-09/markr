@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     "Landmark",
     {
       userId: DataTypes.INTEGER,
+      name: DataTypes.STRING,
       imageUrl: DataTypes.STRING,
       description: DataTypes.STRING,
       lat: DataTypes.DECIMAL,

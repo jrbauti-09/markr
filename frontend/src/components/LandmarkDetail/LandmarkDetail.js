@@ -32,6 +32,7 @@ export default function LandmarkDetail() {
   //   const [latitude, setLatitude] = useState(null);
   //   const [longitude, setLongitude] = useState(null);
   const [id, setId] = useState(null);
+  const [click, setClick] = useState(false);
 
   const landMarks = useSelector((state) => Object.values(state.landmarks));
   const reviews = useSelector((state) => Object.values(state.reviews));
@@ -67,6 +68,8 @@ export default function LandmarkDetail() {
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading Maps";
 
+  console.log(landMark, "This is the landMark");
+
   return (
     <>
       <div className="map_div">
@@ -90,7 +93,22 @@ export default function LandmarkDetail() {
               lat: latitude,
               lng: longitude,
             }}
+            icon={{
+              url: "https://i.dlpng.com/static/png/7069634_preview.png",
+              scaledSize: new window.google.maps.Size(30, 30),
+            }}
+            onClick={() => setClick(!click)}
           />
+          {click && (
+            <InfoWindow
+              position={{
+                lat: latitude,
+                lng: longitude,
+              }}
+            >
+              <div>{landMark.name}</div>
+            </InfoWindow>
+          )}
         </GoogleMap>
       </div>
       <LandmarkReview reviews={reviews} />
