@@ -11,6 +11,7 @@ const get = (landmarks) => ({
   type: LOAD,
   landmarks,
 });
+
 // Action creator for posting landmark.
 const create = () => ({});
 // Action creator for editing landmark.
@@ -26,7 +27,7 @@ export const getLandmarks = () => async (dispatch) => {
   if (response.ok) {
     // array of landmarks.
     const landmarks = await response.json();
-    // console.log(landmarks);
+    // console.log(landmarks, "landmarks");
     dispatch(get(landmarks.landmark));
   }
 };

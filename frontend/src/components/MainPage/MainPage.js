@@ -1,6 +1,7 @@
 import React from "react";
 import "./MainPage.css";
-import paris from "../../images/Paris.jpg";
+// import paris from "../../images/Paris.jpg";
+import splash from "../../images/splash_page_paris.png";
 import china from "../../images/Great-wall.jpg";
 import rio from "../../images/Rio-de-janeiro.jpg";
 
@@ -9,7 +10,7 @@ export default function MainPage() {
     <>
       <div className="slideshow">
         <div className="slideshow-item">
-          <img src={paris} alt=""></img>
+          <img src={splash} alt=""></img>
           <div className="slideshow-item-text">
             <h5>Eiffel Tower, Paris</h5>
             <p>

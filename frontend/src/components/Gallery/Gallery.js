@@ -10,6 +10,7 @@ export default function Gallery() {
 
   // an array of objects of all landmarks.
   const landMarks = useSelector((state) => Object.values(state.landmarks));
+  // console.log(landMarks, "Landmarks..");
 
   useEffect(() => {
     dispatch(getLandmarks());
@@ -19,6 +20,7 @@ export default function Gallery() {
   const [tempimgSrc, setTempImgSrc] = useState("");
   const [modelId, setModelId] = useState("");
 
+  // This is for the modal.
   const getImg = (imgSrc, landmarkId) => {
     setTempImgSrc(imgSrc);
     setModelId(landmarkId);

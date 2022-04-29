@@ -1,10 +1,21 @@
 .login_button {
+  appearance: none;
+  -webkit-appearance: none;
   border: 1px solid #0077b4;
+
+  padding: 10px;
+  border: none;
+  background-color: #3f51b5;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 5px;
+  width: 100%;
 }
 
 .login_button:hover {
   background-color: #00c896ce;
-  border: 1px solid #00c896ce;
+  cursor: pointer;
+  /* border: 1px solid #00c896ce; */
 }
 
 /* body {
@@ -40,9 +51,10 @@ Main_div_login is the main container for the whole page.
 .form_case {
   background-color: aliceblue;
   padding: 1.5em;
-  border-radius: 0.25rem;
+  border-radius: 7px;
   position: relative;
   width: 22rem;
+  /* height: 500px; */
 }
 
 .form_section {
@@ -95,4 +107,48 @@ Main_div_login is the main container for the whole page.
   border-radius: 30px;
   /* transform: translateY(100px); */
   transform: translateX(-50px);
+}
+
+.form_logo {
+  display: flex;
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border-radius: 10px;
+}
+
+.form_header {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_email_input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #eee;
+  border-bottom: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+
+.login_password_input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #eee;
+  border-bottom: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+
+/*
+Sign-up
+*/
+
+.sign_up_link {
+  font-size: small;
+  color: #792692;
 }

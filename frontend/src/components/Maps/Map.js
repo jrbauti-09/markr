@@ -1,12 +1,7 @@
 import React from "react";
 import "./Map.css";
 //Google api
-import {
-  GoogleMap,
-  useLoadScript,
-  Marker,
-  InfoWindow,
-} from "@react-google-maps/api";
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 // import { formatRelative } from "date-fns";
 
 const libraries = ["places"];

@@ -45,7 +45,7 @@ export default function LoginFormPage() {
           <div className="form_case">
             <form onSubmit={handleSubmit}>
               <div className="form_header">
-                <img className="form_logo" alt="form_logo"></img>
+                <img className="form_logo" alt="form_logo" src={Markr}></img>
                 <h3>Log in to Markr</h3>
               </div>
               <ul>
@@ -59,6 +59,7 @@ export default function LoginFormPage() {
                   type="text"
                   value={credential}
                   onChange={(e) => setCredential(e.target.value)}
+                  className="login_email_input"
                   placeholder="Email or Username"
                   required
                 />
@@ -70,6 +71,7 @@ export default function LoginFormPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
+                  className="login_password_input"
                   required
                 />
               </label>
@@ -77,6 +79,12 @@ export default function LoginFormPage() {
                 <button className="login_button" type="submit">
                   Log In
                 </button>
+                <span>
+                  Don't have an account? Visit{" "}
+                  <Link className="sign_up_link" to="/signup">
+                    Sign up page
+                  </Link>
+                </span>
               </div>
             </form>
           </div>
