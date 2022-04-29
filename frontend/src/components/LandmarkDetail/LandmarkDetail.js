@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { getLandmarks } from "../../store/landmark";
 import { getReviews } from "../../store/review";
 import LandmarkReview from "../LandmarkReview/LandmarkReview";
+import "./LandmarkDetail.css";
 
 //Google api
 import {
@@ -19,8 +20,11 @@ import {
 
 const libraries = ["places"];
 const mapContainerStyle = {
-  width: "500px",
+  width: "600px",
   height: "500px",
+  margin: "20px",
+  borderRadius: "20px",
+  boxShadow: "5px 3px 1.3px teal",
 };
 // const center = {
 //   lat: 48.8566,
@@ -73,12 +77,12 @@ export default function LandmarkDetail() {
   return (
     <>
       <div className="map_div">
-        <h1 className="map_header">
+        {/* <h1 className="map_header">
           LandMark{" "}
           <span role="img" aria-label="flag">
             🚩
           </span>
-        </h1>
+        </h1> */}
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
           zoom={14}
@@ -110,8 +114,20 @@ export default function LandmarkDetail() {
             </InfoWindow>
           )}
         </GoogleMap>
+        <div className="image_div">
+          <img className="image_landmark" src={landMark.imageUrl}></img>
+        </div>
       </div>
-      <LandmarkReview reviews={reviews} />
+      <div className="review_description_main_container">
+        <div className="reviews_container">
+          <h1 className="reviews_header">Landmark Reviews</h1>
+          <LandmarkReview reviews={reviews} />
+        </div>
+        <div className="landmark_description_container">
+          <h1 className="landmark_description_header">{landMark.name}</h1>
+          <p className="landmark_description">{landMark.description}</p>
+        </div>
+      </div>
     </>
   );
 }

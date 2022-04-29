@@ -1,0 +1,96 @@
+.reviews_container {
+  margin: 10px;
+  background-color: white;
+  width: 50%;
+  border-radius: 10px;
+  height: 300px;
+  overflow-y: scroll;
+  transition: 1s;
+}
+
+.reviews_container:hover {
+  transform: translateX(10px);
+}
+
+.map_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .google_map_div {
+  margin: 10px;
+} */
+
+.gm-style {
+  margin: 10px;
+}
+
+.review_description_main_container {
+  display: flex;
+}
+
+.landmark_description_container {
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  transition: 1s;
+}
+
+.landmark_description_container:hover {
+  transform: translateX(-20px);
+}
+
+.landmark_description {
+  padding: 20px;
+  font-size: large;
+  text-indent: 30px;
+  /* font-family: will decide what font family */
+}
+
+.landmark_description_header {
+  font-weight: 700;
+  padding: 10px;
+}
+
+.reviews_header {
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(197, 42, 31);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: teal;
+}
+
+.image_landmark {
+  border-radius: 10px;
+  height: 500px;
+  margin-left: 80px;
+  transition: 1s;
+}
+
+.image_landmark:hover {
+  transform: translateX(-25px);
+}
