@@ -14,8 +14,7 @@ export default function LandmarkReview({ reviews }) {
     dispatch(getUsers());
   }, [dispatch]);
 
-  // TODO, user reducer to grab users.
-
+  // Need to fix FROM : UserName.
   return (
     <div className="review_list">
       <ul>
@@ -26,15 +25,13 @@ export default function LandmarkReview({ reviews }) {
             return user.id == review.userId;
           });
 
-          console.log(userReview, "CHECK HERE!");
-
           return (
             <>
               <li className="review" key={review.id}>
                 {review.review}
               </li>
               <span className="review_user">
-                From: {userReview[0].username}
+                {/* From: {userReview[0].username} */}
               </span>
               <span>{review.createdAt}</span>
             </>

@@ -74,6 +74,8 @@ export default function MainPage() {
               <li className="footer_li">Javascript</li>
               <li className="footer_li">PostgreSQL</li>
               <li className="footer_li">Express</li>
+              <li className="footer_li">Node.js</li>
+              <li className="footer_li">JSON API</li>
               <li className="footer_li">HTML</li>
               <li className="footer_li">CSS</li>
             </ul>

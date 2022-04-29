@@ -44,15 +44,16 @@ export default function LandmarkDetail() {
   //   console.log(reviews)
   useEffect(() => {
     dispatch(getLandmarks());
-  }, [dispatch]);
+  }, [dispatch, landMarkId]);
 
   useEffect(() => {
     dispatch(getReviews(landMarkId));
-  }, [dispatch]);
+  }, [dispatch, landMarkId]);
 
   // Get Landmark based on params.
   // This works.
   const landMark = landMarks.find((item) => {
+    //eslint-disable-next-line
     return item.id == landMarkId;
   });
 
@@ -97,10 +98,10 @@ export default function LandmarkDetail() {
               lat: latitude,
               lng: longitude,
             }}
-            icon={{
-              url: "https://i.dlpng.com/static/png/7069634_preview.png",
-              scaledSize: new window.google.maps.Size(30, 30),
-            }}
+            // icon={{
+            //   url: "https://i.dlpng.com/static/png/7069634_preview.png",
+            //   scaledSize: new window.google.maps.Size(30, 30),
+            // }}
             onClick={() => setClick(!click)}
           />
           {click && (
