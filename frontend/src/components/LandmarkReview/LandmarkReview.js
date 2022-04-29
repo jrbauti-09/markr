@@ -22,8 +22,11 @@ export default function LandmarkReview({ reviews }) {
         {reviews.map((review) => {
           // review.userId gives us the user's Id.
           const userReview = usersArray.filter((user) => {
-            return parseInt(user.id) === parseInt(review.userId);
+            //eslint-disable-next-line
+            return user.id == review.userId;
           });
+
+          console.log(userReview, "CHECK HERE!");
 
           return (
             <>
@@ -33,6 +36,7 @@ export default function LandmarkReview({ reviews }) {
               <span className="review_user">
                 From: {userReview[0].username}
               </span>
+              <span>{review.createdAt}</span>
             </>
           );
         })}

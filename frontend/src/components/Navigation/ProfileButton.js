@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
 export default function ProfileButton({ user }) {
@@ -34,6 +34,7 @@ export default function ProfileButton({ user }) {
 
   return (
     <>
+      <NavLink to="/dashboard">Dashboard</NavLink>
       <button onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>

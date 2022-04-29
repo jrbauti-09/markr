@@ -25,7 +25,6 @@ export default function Navigation({ isLoad }) {
         <NavLink exact to="/">
           Home
         </NavLink>
-        <NavLink to="/dashboard">Dashboard</NavLink>
         {isLoad && sessionLinks}
       </li>
     </ul>
