@@ -20,9 +20,11 @@ const center = {
   lng: 10.3966,
 };
 
+// process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+
 export default function Map() {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyCwmwTQLQRJKZDHPV31boZKdSDKzCyYpFg",
     libraries,
   });
 
