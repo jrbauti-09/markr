@@ -66,7 +66,7 @@ export default function LandmarkDetail() {
   const longitude = parseFloat(landMark.lng);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyCwmwTQLQRJKZDHPV31boZKdSDKzCyYpFg",
     libraries,
   });
 
