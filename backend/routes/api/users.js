@@ -11,6 +11,8 @@ const { User } = require("../../db/models");
 
 const router = express.Router();
 
+// Begins with api/users
+
 const validateSignup = [
   check("email")
     .exists({ checkFalsy: true })
@@ -40,6 +42,18 @@ router.post(
 
     return res.json({
       user,
+    });
+  })
+);
+
+// Checked with postman. good to go.
+router.get(
+  "/",
+  asyncHandler(async (req, res, next) => {
+    const allUsers = await User.findAll();
+
+    return res.json({
+      allUsers,
     });
   })
 );
