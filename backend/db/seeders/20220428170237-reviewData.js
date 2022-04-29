@@ -102,6 +102,69 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          userId: 3,
+          landMarkId: 7,
+          review:
+            "It feels so surreal to see this landmark. Such an amazing feeling of empowerment!",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userId: 2,
+          landMarkId: 7,
+          review:
+            "This symbol of freedom and justice is one of the core principles of the United States. Amazing place!",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userId: 1,
+          landMarkId: 7,
+          review: "The view up top is great!!",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userId: 1,
+          landMarkId: 8,
+          review:
+            "The building is located right between Farm Cove and Sydney Cove, overlooking Sydney Harbor. Also, behind the Opera House, it is possible to find a beautiful public park.",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userId: 2,
+          landMarkId: 8,
+          review:
+            "The Opera House is known for its wonderful location and also incredible acoustic.",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userId: 3,
+          landMarkId: 8,
+          review:
+            "The Sydney Opera House located at 2A Macquarie Street in Sydney harbor is arguably one of the most recognizable and known opera houses in the world.",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userId: 3,
+          landMarkId: 9,
+          review:
+            "We visited the tower and surrounding attractions as part of a walking tour, not essential to do this but makes the visit a bit more interesting to know the history, inside the tower it's very narrow and there are plenty of steps to climb but it's definitely worth while doing it",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userId: 2,
+          landMarkId: 9,
+          review:
+            "Children really enjoyed the whole experience, thankfully not too busy when we were there. Fun photos & the views were beautiful from the leaning tower.",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );

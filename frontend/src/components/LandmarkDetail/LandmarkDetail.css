@@ -59,7 +59,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 4px;
   cursor: pointer;
   border-radius: 8px;
 }
@@ -73,7 +73,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(197, 42, 31);
+  background: rgb(55, 139, 189);
   border-radius: 8px;
   cursor: pointer;
 }
