@@ -25,6 +25,16 @@ export default function LoginFormPage() {
     );
   };
 
+  const demoLogin = (e) => {
+    e.preventDefault();
+
+    setCredential("Demo-lition");
+    setPassword("password");
+    return dispatch(
+      sessionActions.login({ credential: "Demo-lition", password: "password" })
+    );
+  };
+
   return (
     <>
       <div className="main_div_login">
@@ -76,6 +86,13 @@ export default function LoginFormPage() {
               <div className="login_container">
                 <button className="login_button" type="submit">
                   Log In
+                </button>
+                <button
+                  type="button"
+                  onMouseDown={demoLogin}
+                  className="demo_button"
+                >
+                  Demo User
                 </button>
                 <span>
                   Don't have an account? Visit{" "}

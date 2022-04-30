@@ -18,6 +18,28 @@
   /* border: 1px solid #00c896ce; */
 }
 
+/* Demo user.. */
+
+.demo_button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #0077b4;
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background-color: #cf1f1f;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.demo_button:hover {
+  background-color: #00c896ce;
+  cursor: pointer;
+  /* border: 1px solid #00c896ce; */
+}
+
 /* body {
   background-image: url("../../../public/images/golden-gate.jpg");
 } */
@@ -45,7 +67,7 @@ Main_div_login is the main container for the whole page.
   background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 94.7vh;
 }
 
 .form_case {
@@ -61,7 +83,7 @@ Main_div_login is the main container for the whole page.
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 3rem);
+  min-height: calc(90vh - 3rem);
 }
 
 /* nav CSS */
