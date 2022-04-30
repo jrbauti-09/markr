@@ -28,7 +28,7 @@ export const getReviews = (id) => async (dispatch) => {
   if (response.ok) {
     // array of reviews.
     const reviews = await response.json();
-    // console.log(reviews)
+    // console.log(reviews, "LOOOOK HERE!!");
     dispatch(load(reviews));
   }
 };
@@ -52,8 +52,10 @@ const reviewReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD:
       const allReviews = {};
+      // console.log(action.reviews, "action.reviews");
       //   console.log(action.reviews, "Action here");
       action.reviews.reviews.forEach((review) => {
+        // console.log(review, "REVIEW HERE");
         allReviews[review.id] = review;
       });
       return {

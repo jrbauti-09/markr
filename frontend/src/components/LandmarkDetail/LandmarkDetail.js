@@ -77,7 +77,7 @@ export default function LandmarkDetail() {
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading Maps";
 
-  console.log(landMark, "This is the landMark");
+  // console.log(landMark, "This is the landMark");
 
   return (
     <>

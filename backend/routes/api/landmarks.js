@@ -42,4 +42,23 @@ router.post(
   })
 );
 
+// Get landmarks based on userId.
+// Checked on postman, working.
+router.get(
+  "/:id",
+  asyncHandler(async (req, res, next) => {
+    const userId = req.params.id;
+
+    const userLandmarks = await Landmark.findAll({
+      where: {
+        userId,
+      },
+    });
+
+    res.json({
+      userLandmarks,
+    });
+  })
+);
+
 module.exports = router;
