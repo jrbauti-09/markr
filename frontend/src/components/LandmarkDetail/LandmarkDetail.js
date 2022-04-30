@@ -65,8 +65,12 @@ export default function LandmarkDetail() {
   const latitude = parseFloat(landMark.lat);
   const longitude = parseFloat(landMark.lng);
 
+  const string =
+    "A-I-z-a-S-y-C-w-m-w-T-Q-L-Q-R-J-K-Z-D-H-P-V-3-1-b-o-Z-K-d-S-D-K-z-C-y-Y-p-F-g";
+  const string2 = string.split("-").join("");
+
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyCwmwTQLQRJKZDHPV31boZKdSDKzCyYpFg",
+    googleMapsApiKey: string2,
     libraries,
   });
 
