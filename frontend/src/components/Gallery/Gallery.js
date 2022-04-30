@@ -13,6 +13,13 @@ export default function Gallery() {
   const landMarks = useSelector((state) => Object.values(state.landmarks));
   // console.log(landMarks, "Landmarks..");
 
+  // sorts by latest.
+  landMarks.sort(function (a, b) {
+    return b.id - a.id;
+  });
+
+  // console.log(landMarks);
+
   useEffect(() => {
     dispatch(getLandmarks());
   }, [dispatch]);

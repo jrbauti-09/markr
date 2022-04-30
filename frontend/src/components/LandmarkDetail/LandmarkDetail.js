@@ -40,6 +40,7 @@ export default function LandmarkDetail() {
 
   const landMarks = useSelector((state) => Object.values(state.landmarks));
   const reviews = useSelector((state) => Object.values(state.reviews));
+  const users = useSelector((state) => Object.values(state.users));
 
   //   console.log(reviews)
   useEffect(() => {
@@ -78,6 +79,16 @@ export default function LandmarkDetail() {
   if (!isLoaded) return "Loading Maps";
 
   // console.log(landMark, "This is the landMark");
+
+  const author = users.find((user) => {
+    //eslint-disable-next-line
+    return user.id == landMark.userId;
+  });
+
+  // get date of publication.
+  const date = landMark.createdAt.slice(0, 10);
+
+  // console.log(author, "author");
 
   return (
     <>
@@ -131,6 +142,9 @@ export default function LandmarkDetail() {
         <div className="landmark_description_container">
           <h1 className="landmark_description_header">{landMark.name}</h1>
           <p className="landmark_description">{landMark.description}</p>
+          <p>
+            Posted By: {author.username} on {date}
+          </p>
         </div>
       </div>
     </>

@@ -17,6 +17,11 @@ export default function Collections() {
   const userLandmarks = useSelector((state) => Object.values(state.collection));
   const sessionUser = useSelector((state) => state.session.user);
 
+  // sorts by latest.
+  userLandmarks.sort(function (a, b) {
+    return b.id - a.id;
+  });
+
   //   console.log(sessionUser, "sessionUser");
   //   console.log(userLandmarks, "userLandmarks");
 
