@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getLandmarks } from "../../store/landmark";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import close from "../../images/close_icon.png";
 import "./Gallery.css";
 
 export default function Gallery() {
@@ -30,7 +31,11 @@ export default function Gallery() {
     <>
       <div className={model ? "model open" : "model"}>
         <img className="modal_img" src={tempimgSrc}></img>
-        <i className="fa-solid" onClick={() => setModel(false)}></i>
+        <img
+          src={close}
+          className="icon_modal"
+          onClick={() => setModel(false)}
+        ></img>
         <Link className="modal_link" to={`/landmarks/${modelId}`}>
           Landmark detail page...
         </Link>

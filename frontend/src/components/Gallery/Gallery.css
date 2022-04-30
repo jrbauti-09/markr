@@ -62,7 +62,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  /* background-color: white; */
   transition: opacity 0.4s ease, visibility 0.4s ease,
     transform 0.5s ease-in-out;
   visibility: hidden;
@@ -91,14 +91,17 @@
   border-radius: 5px;
 }
 
-.model.open i {
+.model.open .icon_modal {
   position: fixed;
   top: 10px;
   right: 10px;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   padding: 5px;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: black;
   cursor: pointer;
+}
+
+.icon_modal:hover {
+  border: 1.2px solid red;
+  background-color: lightcoral;
 }

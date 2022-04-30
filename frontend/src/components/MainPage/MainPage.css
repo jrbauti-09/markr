@@ -140,6 +140,7 @@ animation ^^
 
 .main_footer {
   position: absolute;
+  transform: translateY(-41px);
   width: 100%;
   background-color: black;
 }
@@ -172,10 +173,13 @@ animation ^^
   -webkit-box-pack: justify;
   justify-content: space-between;
   -webkit-box-align: center;
+  padding-bottom: 4.5px;
+  border-bottom: 0.2px solid rgba(255, 255, 255, 0.575);
+  border-bottom-left-radius: 0.5px;
+  border-bottom-right-radius: 0.5px;
   align-items: center;
   list-style: none;
   margin: 0;
-  padding: 0;
   color: hsla(0, 0%, 100%, 0.6);
 }
 

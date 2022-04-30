@@ -34,7 +34,6 @@ export default function ProfileButton({ user }) {
 
   return (
     <>
-      <NavLink to="/dashboard">Dashboard</NavLink>
       <button onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>
@@ -43,7 +42,7 @@ export default function ProfileButton({ user }) {
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
-            <button onClick={logout}>
+            <button clasName="button_logout" onClick={logout}>
               <i className="fas fa-power-off"></i>
               Log Out
             </button>
