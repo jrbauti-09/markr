@@ -19,7 +19,7 @@ a {
 
 .center_container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 33%;
 }
@@ -54,6 +54,8 @@ a {
 
 .dashboard_nav_link {
   text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .nav_home {

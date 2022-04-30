@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import Map from "./components/Maps/Map";
 import Dashboard from "./components/Dashboard/Dashboard";
 import LandmarkDetail from "./components/LandmarkDetail/LandmarkDetail";
+import LandmarkForm from "./components/LandmarkForm/LandmarkForm";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path="/maps">
             <Map />
+          </Route>
+          <Route path="/landmark/post">
+            <LandmarkForm />
           </Route>
           <Route path="/landmarks/:landMarkId">
             <LandmarkDetail />

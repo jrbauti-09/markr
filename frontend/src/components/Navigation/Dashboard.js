@@ -3,12 +3,21 @@ import { NavLink } from "react-router-dom";
 
 export default function Dashboard() {
   return (
-    <NavLink
-      className="dashboard_nav_link"
-      activeClassName="dashboard_nav_active"
-      to="/dashboard"
-    >
-      Explore
-    </NavLink>
+    <>
+      <NavLink
+        className="dashboard_nav_link"
+        activeClassName="dashboard_nav_active"
+        to="/dashboard"
+      >
+        Explore
+      </NavLink>
+      <NavLink
+        className="dashboard_nav_link"
+        activeClassName="dashboard_nav_active"
+        to="/landmark/post"
+      >
+        Post landmark
+      </NavLink>
+    </>
   );
 }

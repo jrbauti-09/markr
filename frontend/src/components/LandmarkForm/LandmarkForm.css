@@ -1,0 +1,26 @@
+.landmark_form_container {
+  background-color: white;
+  height: 850px;
+  width: 50%;
+}
+
+.master_form_div {
+  display: flex;
+  justify-content: center;
+}
+
+.div_header_form {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.header_title {
+  font-size: x-large;
+  font-family: monospace;
+}
+
+.post_landmark_form_button {
+  width: auto;
+  height: auto;
+}

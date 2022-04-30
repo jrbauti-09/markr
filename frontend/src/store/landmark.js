@@ -13,7 +13,10 @@ const get = (landmarks) => ({
 });
 
 // Action creator for posting landmark.
-const create = () => ({});
+const create = (landmark) => ({
+  type: CREATE,
+  landmark,
+});
 // Action creator for editing landmark.
 const edit = () => ({});
 // Action creator for deleting landmark.
@@ -29,6 +32,21 @@ export const getLandmarks = () => async (dispatch) => {
     const landmarks = await response.json();
     // console.log(landmarks, "landmarks");
     dispatch(get(landmarks.landmark));
+  }
+};
+
+// Thunk for adding a landmark.
+
+export const addLandmark = (data) => async (dispatch) => {
+  const response = await csrfFetch("/api/landmarks", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (response.ok) {
+    const landmark = await response.json();
+    dispatch(create(landmark));
   }
 };
 
@@ -62,6 +80,14 @@ const landMarkReducer = (state = initialState, action) => {
         ...state,
         ...allLandmarks,
       };
+    case CREATE:
+      // console.log(action.landmark.id, "LOOK HERE");
+      // console.log(action.landmark.landmark, "LOOK HERE");
+      const newState = {
+        ...state,
+        [action.landmark.newLandmark.id]: action.landmark.newLandmark,
+      };
+      return newState;
     default:
       return state;
   }

@@ -20,4 +20,26 @@ router.get(
   })
 );
 
+// Post a landmark to database.
+// Will need csurfFetch.
+router.post(
+  "/",
+  asyncHandler(async (req, res, next) => {
+    const { userId, name, imageUrl, description, lat, lng } = req.body;
+
+    const newLandmark = await Landmark.create({
+      userId,
+      name,
+      imageUrl,
+      description,
+      lat: parseFloat(lat),
+      lng: parseFloat(lng),
+    });
+
+    res.json({
+      newLandmark,
+    });
+  })
+);
+
 module.exports = router;
