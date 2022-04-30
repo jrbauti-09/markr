@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getLandmarks } from "../../store/landmark";
+import { getUsers } from "../../store/user";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import close from "../../images/close_icon.png";
 import "./Gallery.css";
@@ -22,6 +23,10 @@ export default function Gallery() {
 
   useEffect(() => {
     dispatch(getLandmarks());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getUsers());
   }, [dispatch]);
 
   const [model, setModel] = useState(false);

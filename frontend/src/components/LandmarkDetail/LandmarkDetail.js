@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getLandmarks } from "../../store/landmark";
 import { getReviews } from "../../store/review";
+import { getUsers } from "../../store/user";
 import LandmarkReview from "../LandmarkReview/LandmarkReview";
 import "./LandmarkDetail.css";
 
@@ -50,6 +51,10 @@ export default function LandmarkDetail() {
   useEffect(() => {
     dispatch(getReviews(landMarkId));
   }, [dispatch, landMarkId]);
+
+  // useEffect(() => {
+  //   dispatch(getUsers());
+  // }, [dispatch]);
 
   // Get Landmark based on params.
   // This works.
