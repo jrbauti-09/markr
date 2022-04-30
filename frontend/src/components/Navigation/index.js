@@ -36,13 +36,15 @@ export default function Navigation({ isLoad }) {
               >
                 Home
               </NavLink>
-              <NavLink
-                className="nav_home"
-                activeClassName="nav_link_active"
-                to="/collections"
-              >
-                Your Landmarks
-              </NavLink>
+              {isLoad && sessionUser && (
+                <NavLink
+                  className="nav_home"
+                  activeClassName="nav_link_active"
+                  to="/collections"
+                >
+                  Your Landmarks
+                </NavLink>
+              )}
             </div>
             <div className="center_container">{isLoad && sessionDash}</div>
             <div className="right_container">{isLoad && sessionLinks}</div>

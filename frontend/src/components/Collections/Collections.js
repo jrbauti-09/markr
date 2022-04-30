@@ -17,8 +17,8 @@ export default function Collections() {
   const userLandmarks = useSelector((state) => Object.values(state.collection));
   const sessionUser = useSelector((state) => state.session.user);
 
-  console.log(sessionUser, "sessionUser");
-  console.log(userLandmarks, "userLandmarks");
+  //   console.log(sessionUser, "sessionUser");
+  //   console.log(userLandmarks, "userLandmarks");
 
   useEffect(() => {
     dispatch(getUserLandmarks(sessionUser.id));
