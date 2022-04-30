@@ -29,7 +29,7 @@
 .modal_link {
   transform: translateX(-60px);
   font-size: large;
-  color: black;
+  color: white;
 }
 
 @media (max-width: 991px) {

@@ -44,6 +44,9 @@ export default function Collections() {
         <Link className="modal_link" to={`/landmarks/${modelId}`}>
           Landmark detail page...
         </Link>
+        <Link className="edit_landmark_link" to={`/landmark/edit/${modelId}`}>
+          Landmark edit page...
+        </Link>
       </div>
       <div className="gallery">
         {userLandmarks.map((landmark) => {

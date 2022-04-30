@@ -50,3 +50,9 @@
   border: 1.2px solid red;
   background-color: lightcoral;
 }
+
+.edit_landmark_link {
+  transform: translateX(-30px);
+  font-size: large;
+  color: white;
+}
