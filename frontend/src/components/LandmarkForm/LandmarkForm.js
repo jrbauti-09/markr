@@ -19,6 +19,8 @@ export default function LandmarkForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    window.alert("Landmark posted!");
+
     const data = {
       userId: userSession.id,
       name,
