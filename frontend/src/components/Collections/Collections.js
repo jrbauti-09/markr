@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getUserLandmarks } from "../../store/usercollection";
+import { getUsers } from "../../store/user";
+import { getLandmarks } from "../../store/landmark";
+import DeleteLandmark from "../DeleteLandmark/DeleteLandmark";
 import "./Collections.css";
 import close from "../../images/close_icon.png";
+import bin from "../../images/garbage_trash_bin.ico";
 
 export default function Collections() {
   const dispatch = useDispatch();
@@ -11,6 +15,9 @@ export default function Collections() {
   const [model, setModel] = useState(false);
   const [tempimgSrc, setTempImgSrc] = useState("");
   const [modelId, setModelId] = useState("");
+  const [deleteModal, setDeleteModal] = useState(false);
+
+  // console.log(deleteModal);
 
   // an array of objects of all landmarks.
 
@@ -22,6 +29,11 @@ export default function Collections() {
     return b.id - a.id;
   });
 
+  let deleteForm;
+  if (deleteModal) {
+    deleteForm = <DeleteLandmark props={modelId} set={setDeleteModal} />;
+  }
+
   //   console.log(sessionUser, "sessionUser");
   //   console.log(userLandmarks, "userLandmarks");
 
@@ -29,9 +41,17 @@ export default function Collections() {
     dispatch(getUserLandmarks(sessionUser.id));
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getLandmarks());
+  }, [dispatch]);
+
   // This is for the modal.
   const getImg = (imgSrc, landmarkId) => {
-    console.log(imgSrc, landmarkId);
+    // console.log(imgSrc, landmarkId);
     setTempImgSrc(imgSrc);
     setModelId(landmarkId);
     setModel(true);
@@ -46,12 +66,30 @@ export default function Collections() {
           className="icon_modal"
           onClick={() => setModel(false)}
         ></img>
-        <Link className="modal_link" to={`/landmarks/${modelId}`}>
-          Landmark detail page...
-        </Link>
-        <Link className="edit_landmark_link" to={`/landmark/edit/${modelId}`}>
-          Landmark edit page...
-        </Link>
+        <div className="container_links">
+          <div>
+            <Link className="modal_link" to={`/landmarks/${modelId}`}>
+              Landmark detail page...
+            </Link>
+          </div>
+          <div>
+            <Link
+              className="edit_landmark_link"
+              to={`/landmark/edit/${modelId}`}
+            >
+              Landmark edit page...
+            </Link>
+          </div>
+          <div>
+            <img
+              className="bin_icon"
+              src={bin}
+              style={{ color: "white", fontSize: "large" }}
+              onClick={() => setDeleteModal(!deleteModal)}
+            ></img>
+            <div>{deleteForm}</div>
+          </div>
+        </div>
       </div>
       <div className="gallery">
         {userLandmarks.map((landmark) => {
