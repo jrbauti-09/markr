@@ -135,7 +135,8 @@ const landMarkReducer = (state = initialState, action) => {
       const newState = {
         ...state,
       };
-      delete [action.deletePost.id];
+      delete newState[action.deletePost.id];
+      // console.log(newState, "NEW STATE");
       return newState;
     }
     default:
