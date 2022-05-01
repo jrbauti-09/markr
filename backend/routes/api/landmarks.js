@@ -61,4 +61,42 @@ router.get(
   })
 );
 
+router.put(
+  "/:id",
+  asyncHandler(async (req, res, next) => {
+    const landMarkId = req.params.id;
+    const { userId, name, imageUrl, description, lat, lng } = req.body;
+
+    const landMarkToUpdate = await Landmark.findByPk(landMarkId);
+
+    await landMarkToUpdate.update({
+      userId,
+      name,
+      imageUrl,
+      description,
+      lat: parseFloat(lat),
+      lng: parseFloat(lng),
+    });
+
+    res.json({
+      landMarkToUpdate,
+    });
+  })
+);
+
+router.delete(
+  "/:id",
+  asyncHandler(async (req, res, next) => {
+    const landMarkId = req.params.id;
+
+    const landMarkToDelete = await Landmark.findByPk(landMarkId);
+
+    await landMarkToDelete.destroy();
+
+    res.json({
+      landMarkToDelete,
+    });
+  })
+);
+
 module.exports = router;
