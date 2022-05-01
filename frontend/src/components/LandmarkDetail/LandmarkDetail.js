@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { getLandmarks } from "../../store/landmark";
 import { getReviews } from "../../store/review";
-import { getUsers } from "../../store/user";
+// import { getUsers } from "../../store/user";
 import LandmarkReview from "../LandmarkReview/LandmarkReview";
 import "./LandmarkDetail.css";
 
@@ -19,7 +19,6 @@ import {
 // We will useParams to find landmark Id.
 // will use the .find method to locate the landmark we want.
 
-const libraries = ["places"];
 const mapContainerStyle = {
   width: "600px",
   height: "500px",
@@ -82,17 +81,7 @@ export default function LandmarkDetail() {
   const latitude = parseFloat(landMark.lat);
   const longitude = parseFloat(landMark.lng);
 
-  const string =
-    "A-I-z-a-S-y-C-w-m-w-T-Q-L-Q-R-J-K-Z-D-H-P-V-3-1-b-o-Z-K-d-S-D-K-z-C-y-Y-p-F-g";
-  const string2 = string.split("-").join("");
-
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: string2,
-    libraries,
-  });
-
-  if (loadError) return "Error loading maps";
-  if (!isLoaded) return "Loading Maps";
+  // Put load script here.
 
   // console.log(landMark, "This is the landMark");
 

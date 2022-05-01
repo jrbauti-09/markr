@@ -39,7 +39,7 @@ export default function Collections() {
 
   useEffect(() => {
     dispatch(getUserLandmarks(sessionUser.id));
-  }, [dispatch]);
+  }, [dispatch, sessionUser.id]);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -60,11 +60,12 @@ export default function Collections() {
   return (
     <>
       <div className={model ? "model open" : "model"}>
-        <img className="modal_img" src={tempimgSrc}></img>
+        <img className="modal_img" src={tempimgSrc} alt="img"></img>
         <img
           src={close}
           className="icon_modal"
           onClick={() => setModel(false)}
+          alt="img"
         ></img>
         <div className="container_links">
           <div>
@@ -86,6 +87,7 @@ export default function Collections() {
               src={bin}
               style={{ color: "white", fontSize: "large" }}
               onClick={() => setDeleteModal(!deleteModal)}
+              alt="img"
             ></img>
             <div>{deleteForm}</div>
           </div>
@@ -103,6 +105,7 @@ export default function Collections() {
                 className="gallery_pic"
                 src={landmark.imageUrl}
                 style={{ width: "100%" }}
+                alt="img"
               ></img>
             </div>
           );

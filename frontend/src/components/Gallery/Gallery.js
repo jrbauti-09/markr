@@ -7,12 +7,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import close from "../../images/close_icon.png";
 import "./Gallery.css";
 
+//Google api
+import {
+  GoogleMap,
+  useLoadScript,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
+
+const libraries = ["places"];
+const string =
+  "A-I-z-a-S-y-C-w-m-w-T-Q-L-Q-R-J-K-Z-D-H-P-V-3-1-b-o-Z-K-d-S-D-K-z-C-y-Y-p-F-g";
+const string2 = string.split("-").join("");
+
 export default function Gallery() {
   const dispatch = useDispatch();
 
   // an array of objects of all landmarks.
   const landMarks = useSelector((state) => Object.values(state.landmarks));
   // console.log(landMarks, "Landmarks..");
+
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: string2,
+    libraries,
+  });
 
   // sorts by latest.
   landMarks.sort(function (a, b) {
@@ -31,6 +49,8 @@ export default function Gallery() {
   const [tempimgSrc, setTempImgSrc] = useState("");
   const [modelId, setModelId] = useState("");
 
+  if (loadError) return "Error loading maps";
+  if (!isLoaded) return "Loading Maps";
   // This is for the modal.
   const getImg = (imgSrc, landmarkId) => {
     setTempImgSrc(imgSrc);
