@@ -19,8 +19,6 @@ export default function Gallery() {
     return b.id - a.id;
   });
 
-  // console.log(landMarks);
-
   useEffect(() => {
     dispatch(getLandmarks());
   }, [dispatch]);
