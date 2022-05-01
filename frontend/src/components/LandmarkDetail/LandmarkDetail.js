@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getLandmarks } from "../../store/landmark";
@@ -27,6 +27,7 @@ const mapContainerStyle = {
   borderRadius: "20px",
   boxShadow: "5px 3px 1.3px teal",
 };
+
 // const center = {
 //   lat: 48.8566,
 //   lng: 2.3522,
@@ -34,18 +35,25 @@ const mapContainerStyle = {
 export default function LandmarkDetail() {
   const { landMarkId } = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
   //   const [latitude, setLatitude] = useState(null);
   //   const [longitude, setLongitude] = useState(null);
   const [id, setId] = useState(null);
   const [click, setClick] = useState(false);
+  const [land, setLand] = useState([]);
 
   const landMarks = useSelector((state) => Object.values(state.landmarks));
   const reviews = useSelector((state) => Object.values(state.reviews));
   const users = useSelector((state) => Object.values(state.users));
 
+  if (!landMarks.length) {
+    history.push("/");
+  }
+
   //   console.log(reviews)
   useEffect(() => {
     dispatch(getLandmarks());
+    setLand(landMarks);
   }, [dispatch, landMarkId]);
 
   useEffect(() => {
@@ -58,6 +66,9 @@ export default function LandmarkDetail() {
 
   // Get Landmark based on params.
   // This works.
+  // console.log(land, "LAND");
+  // console.log(landMarks, "landMarks");
+
   const landMark = landMarks.find((item) => {
     //eslint-disable-next-line
     return item.id == landMarkId;
@@ -147,9 +158,7 @@ export default function LandmarkDetail() {
         <div className="landmark_description_container">
           <h1 className="landmark_description_header">{landMark.name}</h1>
           <p className="landmark_description">{landMark.description}</p>
-          <p>
-            Posted By: {author.username} on {date}
-          </p>
+          <p>Posted By: on {date}</p>
         </div>
       </div>
     </>
