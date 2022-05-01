@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import { addLandmark } from "../../store/landmark";
+import Search from "./Search";
 
 import "./LandmarkForm.css";
 
