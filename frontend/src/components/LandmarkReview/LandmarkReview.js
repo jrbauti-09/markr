@@ -20,17 +20,21 @@ export default function LandmarkReview({ reviews }) {
       <ul>
         {reviews.map((review) => {
           // review.userId gives us the user's Id.
-          const userReview = usersArray.find((user) => {
-            //eslint-disable-next-line
-            return user.id == review.userId;
-          });
-
+          const index = review.userId - 1;
+          let userInfo;
+          if (!usersArray.length) {
+            userInfo = usersArray[index];
+          }
+          let validUser;
+          if (userInfo) {
+            validUser = userInfo.username;
+          }
           return (
             <>
               <li className="review" key={review.id}>
                 {review.review}
               </li>
-              <span className="review_user">From: {userReview.username}</span>
+              <span className="review_user">From:</span>
               <span>{review.createdAt.slice(0, 10)}</span>
             </>
           );

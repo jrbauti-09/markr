@@ -18,14 +18,20 @@ const create = (landmark) => ({
   landmark,
 });
 // Action creator for editing landmark.
-const edit = () => ({});
+const edit = (editedLandmark) => ({
+  type: EDIT,
+  editedLandmark,
+});
 // Action creator for deleting landmark.
-const deleteLandmark = () => ({});
+const deletePost = (deletePost) => ({
+  type: DELETE,
+  deletePost,
+});
 
 // Thunk for getting all landmarks.
 
 export const getLandmarks = () => async (dispatch) => {
-  const response = await fetch("/api/landmarks");
+  const response = await csrfFetch("/api/landmarks");
 
   if (response.ok) {
     // array of landmarks.
@@ -47,6 +53,37 @@ export const addLandmark = (data) => async (dispatch) => {
   if (response.ok) {
     const landmark = await response.json();
     dispatch(create(landmark));
+  }
+};
+
+// Thunk for editing a landmark.
+
+export const editLandmark = (landMarkId, data) => async (dispatch) => {
+  const response = await csrfFetch(`/api/landmarks/${landMarkId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (response.ok) {
+    const editedLandmark = await response.json();
+    // console.log(editedLandmark, "Edited Landmark");
+    dispatch(edit(editedLandmark.landMarkToUpdate));
+    return editedLandmark;
+  }
+};
+
+// Thunk for deleting a landmark.
+
+export const deleteLandmark = (landMarkId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/landmarks/${landMarkId}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    // console.log(data);
+    dispatch(deletePost(data.landMarkToDelete));
   }
 };
 
@@ -88,6 +125,19 @@ const landMarkReducer = (state = initialState, action) => {
         [action.landmark.newLandmark.id]: action.landmark.newLandmark,
       };
       return newState;
+    case EDIT:
+      const editState = {
+        ...state,
+        [action.editedLandmark.id]: action.editedLandmark,
+      };
+      return editState;
+    case DELETE: {
+      const newState = {
+        ...state,
+      };
+      delete [action.deletePost.id];
+      return newState;
+    }
     default:
       return state;
   }
