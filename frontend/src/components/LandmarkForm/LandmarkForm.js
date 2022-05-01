@@ -103,13 +103,13 @@ export default function LandmarkForm() {
           <button
             className="post_landmark_form_button"
             type="submit"
-            disabled={validationErrors.length > 0}
+            // disabled={validationErrors.length > 0}
           >
             Post New Landmark!
           </button>
         </form>
       </div>
-      <Search />
+      <Search setLat={setLat} setLng={setLng} />
     </div>
   );
 }
