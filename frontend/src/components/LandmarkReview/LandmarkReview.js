@@ -11,9 +11,6 @@ export default function LandmarkReview({ reviews }) {
   const dispatch = useDispatch();
   const usersArray = useSelector((state) => Object.values(state.users));
 
-  const landMarkId = reviews[0].landMarkId;
-  console.log(landMarkId);
-
   useEffect(() => {
     dispatch(getUsers());
   }, [dispatch]);
@@ -46,7 +43,7 @@ export default function LandmarkReview({ reviews }) {
       </ul>
       <div className="review_link_main_container">
         <div className="review_link_container">
-          <Link className="review_link" to={`/landmark/review/${landMarkId}`}>
+          <Link className="review_link" to={`/landmark/review/`}>
             Here
           </Link>
         </div>
