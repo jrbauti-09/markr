@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import { postReview } from "../../store/review";
 
 import "./LandmarkReviewForm.css";
 
@@ -19,16 +20,19 @@ export default function LandmarkReviewForm() {
   // console.log(landMarkId);
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
-    // window.alert("Review posted.");
-    // const data = {
-    //   userId: userSession.id,
-    //   landMarkId,
-    //   review,
-    // };
-    // dispatch(postReview(landMarkId, data));
-    // setReview("");
-    // setValidationErrors([]);
+    e.preventDefault();
+    window.alert("Review posted.");
+
+    const data = {
+      userId: userSession.id,
+      landMarkId,
+      review,
+    };
+
+    dispatch(postReview(data));
+    setReview("");
+    setValidationErrors([]);
+    history.push(`/landmarks/${landMarkId}`);
   };
 
   useEffect(() => {
