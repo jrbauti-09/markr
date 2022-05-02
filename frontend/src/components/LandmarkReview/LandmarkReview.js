@@ -10,12 +10,18 @@ export default function LandmarkReview({ reviews, landMarkId }) {
 
   const dispatch = useDispatch();
   const usersArray = useSelector((state) => Object.values(state.users));
+  const userSession = useSelector((state) => state.session.user);
 
   useEffect(() => {
     dispatch(getUsers());
   }, [dispatch]);
 
   // Need to fix FROM : UserName.
+
+  // review button logic:
+  // if userSession.id === review.userId
+  // then we display buttons.
+
   return (
     <div className="review_list">
       <ul>
@@ -37,6 +43,26 @@ export default function LandmarkReview({ reviews, landMarkId }) {
               </li>
               <span className="review_user">From:</span>
               <span>{review.createdAt.slice(0, 10)}</span>
+              <div
+                className="review_edit_delete_button_container"
+                style={{ display: "flex", justifyContent: "flex-end" }}
+              >
+                {" "}
+                <div
+                  className={
+                    userSession.id === review.userId ? "unhidden" : "hidden"
+                  }
+                >
+                  <button className="review_edit_button">EDIT</button>
+                </div>
+                <div
+                  className={
+                    userSession.id === review.userId ? "unhidden" : "hidden"
+                  }
+                >
+                  <button className="review_edit_button">DELETE</button>
+                </div>
+              </div>
             </>
           );
         })}

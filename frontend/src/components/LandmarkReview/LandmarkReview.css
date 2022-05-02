@@ -36,3 +36,19 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.hidden {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.review_edit_button {
+  margin-right: 5px;
+}
+
+.review_edit_button {
+  margin-right: 5px;
+}
