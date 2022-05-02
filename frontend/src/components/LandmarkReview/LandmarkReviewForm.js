@@ -12,6 +12,8 @@ export default function LandmarkReviewForm() {
   const [review, setReview] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
   const userSession = useSelector((state) => state.session.user);
+  const landMarkObject = useSelector((state) => state.landmarks);
+  const landMark = landMarkObject[landMarkId];
 
   // console.log(landMarkId);
 
@@ -42,33 +44,64 @@ export default function LandmarkReviewForm() {
   }, [review]);
 
   return (
-    <div className="review_form_container">
-      <div className="review_form_holder">
-        <form className="review_form" onSubmit={handleSubmit}>
-          <ul className="error_container">
-            {validationErrors.length > 0 &&
-              validationErrors.map((error) => (
-                <li className="error" key={error}>
-                  {error}
-                </li>
-              ))}
-          </ul>
-          <div className="form_element">
-            <input
-              type="text"
-              value={review}
-              onChange={(e) => setReview(e.target.value)}
-              placeholder="Add review here."
-            ></input>
-          </div>
-          <button
-            className="post_landmark_form_button"
-            type="submit"
-            disabled={validationErrors.length > 0}
-          >
-            Post Review!
-          </button>
-        </form>
+    <div className="review_post_form_superdiv">
+      <div>
+        <img
+          className="review_edit_form_image"
+          src={landMark.imageUrl}
+          style={{ border: "1.5px solid beige" }}
+        ></img>
+      </div>
+      <div className="review_edit_main_container">
+        <div className="review_edit_form_container">
+          <form className="review_edit_form_holder" onSubmit={handleSubmit}>
+            <div className="">
+              <h1 style={{ display: "flex", justifyContent: "center" }}>
+                Post your review for {landMark.name}!
+              </h1>
+            </div>
+            <ul className="error_container">
+              {validationErrors.length > 0 &&
+                validationErrors.map((error) => (
+                  <li
+                    className="error"
+                    key={error}
+                    style={{
+                      listStyle: "none",
+                      marginLeft: "15px",
+                      marginTop: "5px",
+                    }}
+                  >
+                    {error}
+                  </li>
+                ))}
+            </ul>
+            <div className="form_element">
+              <textarea
+                type="text"
+                value={review}
+                onChange={(e) => setReview(e.target.value)}
+                style={{
+                  width: "480px",
+                  height: "100px",
+                  padding: "10px",
+                  margin: "10px",
+                  borderRadius: "8px",
+                }}
+                placeholder="Add review here."
+              ></textarea>
+            </div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <button
+                className="post_landmark_form_button"
+                type="submit"
+                disabled={validationErrors.length > 0}
+              >
+                Post Review!
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

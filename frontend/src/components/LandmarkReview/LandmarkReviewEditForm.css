@@ -26,3 +26,15 @@
   height: 94.5vh;
   overflow: hidden;
 }
+
+.review_post_form_superdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../images/grand_canyon.jpg");
+  position: relative;
+  background-position: bottom;
+  background-size: cover;
+  height: 94.5vh;
+  overflow: hidden;
+}
