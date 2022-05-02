@@ -46,4 +46,24 @@ router.post(
   })
 );
 
+//Route to update review based on id.
+
+router.put(
+  "/:reviewId",
+  asyncHandler(async (req, res, next) => {
+    const { review } = req.body;
+    const reviewId = req.params.reviewId;
+
+    const reviewToUpdate = await Review.findByPk(reviewId);
+
+    await reviewToUpdate.update({
+      review,
+    });
+
+    res.json({
+      reviewToUpdate,
+    });
+  })
+);
+
 module.exports = router;
