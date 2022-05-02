@@ -12,6 +12,7 @@ import LandmarkForm from "./components/LandmarkForm/LandmarkForm";
 import Collections from "./components/Collections/Collections";
 import LandmarkEditForm from "./components/LandmarkEditForm/LandmarkEditForm";
 import LandmarkReviewForm from "./components/LandmarkReview/LandmarkReviewForm";
+import LandmarkReviewEditForm from "./components/LandmarkReview/LandmarkReviewEditForm";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
             <Map />
           </Route>
           <Route path="/reviews/edit/:reviewId">
-            <div>HERE..</div>
+            <LandmarkReviewEditForm />
           </Route>
           <Route path="/landmark/post">
             <LandmarkForm />
