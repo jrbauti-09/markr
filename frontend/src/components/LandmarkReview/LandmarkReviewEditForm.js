@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, Link } from "react-router-dom";
+import { editReview } from "../../store/review";
 
 import "./LandmarkReviewEditForm.css";
 
@@ -36,6 +37,9 @@ export default function LandmarkReviewEditForm() {
     };
 
     // TODO: dispatch to thunk.
+
+    const updatedReview = await dispatch(editReview(reviewToEdit.id, data));
+    history.push(`/landmarks/${landMarkId}`);
   };
 
   useEffect(() => {

@@ -19,7 +19,10 @@ const create = (review) => ({
   review,
 });
 
-const edit = () => ({});
+const edit = (review) => ({
+  type: EDIT,
+  review,
+});
 
 const deleteReview = () => ({});
 
@@ -47,6 +50,22 @@ export const postReview = (data) => async (dispatch) => {
     // new review
     const newReview = await response.json();
     dispatch(create(newReview.newReview));
+  }
+};
+
+// Create thunk for editReview
+
+export const editReview = (reviewId, data) => async (dispatch) => {
+  const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (response.ok) {
+    const editedReview = await response.json();
+    console.log(editedReview);
+    dispatch(edit(editedReview.reviewToUpdate));
   }
 };
 
@@ -84,6 +103,12 @@ const reviewReducer = (state = initialState, action) => {
         [action.review.id]: action.review,
       };
       return newState;
+    case EDIT:
+      const editState = {
+        ...state,
+        [action.review.id]: action.review,
+      };
+      return editState;
     default:
       return state;
   }
