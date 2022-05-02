@@ -38,3 +38,22 @@
   height: 94.5vh;
   overflow: hidden;
 }
+
+.review_edit_form_button {
+  -webkit-appearance: none;
+  border: 1px solid #0077b4;
+  padding: 10px;
+  border: none;
+  background-color: #3f51b5;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 5px;
+  width: 90%;
+}
+
+.review_edit_form_button:hover {
+  background-color: #fffb1b;
+  color: black;
+  cursor: pointer;
+  /* border: 1px solid #00c896ce; */
+}

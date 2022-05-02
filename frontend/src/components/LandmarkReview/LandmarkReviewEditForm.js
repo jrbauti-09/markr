@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
 
 import "./LandmarkReviewEditForm.css";
 
@@ -63,12 +63,22 @@ export default function LandmarkReviewEditForm() {
               <ul className="error_container">
                 {validationErrors.length > 0 &&
                   validationErrors.map((error) => (
-                    <li className="error" key={error}>
+                    <li
+                      className="error"
+                      key={error}
+                      style={{
+                        listStyle: "none",
+                        marginLeft: "10px",
+                        marginTop: "5px",
+                        marginBottom: "2px",
+                        color: "red",
+                      }}
+                    >
                       {error}
                     </li>
                   ))}
               </ul>
-              <label style={{ padding: "10px" }}>Review:</label>
+              <label style={{ padding: "10px" }}>Review text below:</label>
               <textarea
                 type="text"
                 value={review}
@@ -81,13 +91,15 @@ export default function LandmarkReviewEditForm() {
                   borderRadius: "8px",
                 }}
               ></textarea>
-              <button
-                className="review_edit_form_button"
-                type="submit"
-                disabled={validationErrors.length > 0}
-              >
-                Edit Review
-              </button>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <button
+                  className="review_edit_form_button"
+                  type="submit"
+                  disabled={validationErrors.length > 0}
+                >
+                  Edit Review
+                </button>
+              </div>
             </form>
           </div>
         </div>
