@@ -15,3 +15,24 @@
   width: 300px;
   transform: translateX(30px);
 }
+
+.review_link {
+  width: auto;
+  color: rgb(1, 37, 238);
+}
+
+.review_link_container {
+  /* background-color: red; */
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 75px;
+}
+
+.review_link_main_container {
+  width: auto;
+  display: flex;
+  justify-content: flex-end;
+}

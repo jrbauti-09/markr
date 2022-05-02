@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers } from "../../store/user";
+import { Link } from "react-router-dom";
 import "./LandmarkReview.css";
 
 export default function LandmarkReview({ reviews }) {
@@ -9,6 +10,9 @@ export default function LandmarkReview({ reviews }) {
 
   const dispatch = useDispatch();
   const usersArray = useSelector((state) => Object.values(state.users));
+
+  const landMarkId = reviews[0].landMarkId;
+  console.log(landMarkId);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -40,6 +44,13 @@ export default function LandmarkReview({ reviews }) {
           );
         })}
       </ul>
+      <div className="review_link_main_container">
+        <div className="review_link_container">
+          <Link className="review_link" to={`/landmark/review/${landMarkId}`}>
+            Here
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
