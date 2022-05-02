@@ -14,7 +14,10 @@ const load = (reviews) => ({
 
 // Action creator for posting a review for a landmark.
 
-const create = () => ({});
+const create = (review) => ({
+  type: CREATE,
+  review,
+});
 
 const edit = () => ({});
 
@@ -30,6 +33,20 @@ export const getReviews = (id) => async (dispatch) => {
     const reviews = await response.json();
     // console.log(reviews, "LOOOOK HERE!!");
     dispatch(load(reviews));
+  }
+};
+
+export const postReview = (data) => async (dispatch) => {
+  const response = await csrfFetch(`/api/reviews/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (response.ok) {
+    // new review
+    const newReview = await response.json();
+    dispatch(create(newReview.newReview));
   }
 };
 
@@ -61,6 +78,12 @@ const reviewReducer = (state = initialState, action) => {
       return {
         ...allReviews,
       };
+    case CREATE:
+      const newState = {
+        ...state,
+        [action.review.id]: action.review,
+      };
+      return newState;
     default:
       return state;
   }
