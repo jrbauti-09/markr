@@ -142,7 +142,7 @@ export default function LandmarkDetail() {
       <div className="review_description_main_container">
         <div className="reviews_container">
           <h1 className="reviews_header">Landmark Reviews</h1>
-          <LandmarkReview reviews={reviews} />
+          <LandmarkReview reviews={reviews} landMarkId={landMarkId} />
         </div>
         <div className="landmark_description_container">
           <h1 className="landmark_description_header">{landMark.name}</h1>
