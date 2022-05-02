@@ -44,6 +44,9 @@ function App() {
           <Route path="/maps">
             <Map />
           </Route>
+          <Route path="/reviews/edit/:reviewId">
+            <div>HERE..</div>
+          </Route>
           <Route path="/landmark/post">
             <LandmarkForm />
           </Route>
