@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 import "./LandmarkReviewForm.css";
 
 export default function LandmarkReviewForm() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { landMarkId } = useParams();
   const [review, setReview] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
   const userSession = useSelector((state) => state.session.user);
+
+  // console.log(landMarkId);
 
   // landMarkId will be passed down from previous prop.
   // handleSubmit function.
