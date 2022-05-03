@@ -1,6 +1,9 @@
 .landmark_form_container {
+  display: flex;
+  justify-content: center;
   background-color: white;
-  height: 850px;
+  border-radius: 10px;
+  height: 700px;
   width: 50%;
 }
 
@@ -45,10 +48,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../../images/Burj\ Khalifa.jpg");
+  background-image: url("../../images/statue_of_liberty.jpg");
   position: relative;
-  background-position: bottom;
+  background-position: left;
   background-size: cover;
   height: 94.5vh;
   overflow: hidden;
+}
+
+.landmark_form_input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #eee;
+  border-bottom: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }

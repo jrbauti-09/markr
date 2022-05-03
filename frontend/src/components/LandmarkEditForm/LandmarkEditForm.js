@@ -85,6 +85,7 @@ export default function LandmarkEditForm() {
             <input
               type="text"
               value={name}
+              className="landmark_form_input"
               onChange={(e) => setName(e.target.value)}
               placeholder="Name Of Landmark"
             ></input>
@@ -93,6 +94,7 @@ export default function LandmarkEditForm() {
             <input
               type="text"
               value={imageUrl}
+              className="landmark_form_input"
               onChange={(e) => setImageUrl(e.target.value)}
               placeholder="https://wallpaperaccess.com/full/276843.jpg"
             ></input>
@@ -101,6 +103,7 @@ export default function LandmarkEditForm() {
             <textarea
               type="text"
               value={description}
+              className="landmark_form_input"
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Description of landmark here.."
             ></textarea>
@@ -109,6 +112,7 @@ export default function LandmarkEditForm() {
             <input
               type="text"
               value={lat}
+              className="landmark_form_input"
               onChange={(e) => setLat(e.target.value)}
               placeholder="36.0544"
             ></input>
@@ -117,6 +121,7 @@ export default function LandmarkEditForm() {
             <input
               type="text"
               value={lng}
+              className="landmark_form_input"
               onChange={(e) => setLng(e.target.value)}
               placeholder="112.1401"
             ></input>
