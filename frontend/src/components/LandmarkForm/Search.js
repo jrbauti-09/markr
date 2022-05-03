@@ -111,6 +111,7 @@ function Searching(props) {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           disabled={!ready}
+          className="combobox_input"
           placeholder="Enter address of your landmark"
         />
         <ComboboxPopover style={{ backgroundColor: "whitesmoke" }}>

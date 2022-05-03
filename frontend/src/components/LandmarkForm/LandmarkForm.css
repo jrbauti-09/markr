@@ -3,7 +3,7 @@
   justify-content: center;
   background-color: white;
   border-radius: 10px;
-  height: 700px;
+  height: 724px;
   width: 50%;
 }
 
@@ -63,4 +63,22 @@
   border-bottom: 1px solid #eee;
   border-radius: 10px;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+
+.textarea {
+  width: 420px;
+  height: 100px;
+}
+
+.combobox_input {
+  border-radius: 2px;
+  transform: translateY(80px);
+}
+
+.powered_by_google {
+}
+
+.powered_by_google_container {
+  display: flex;
+  justify-content: flex-end;
 }

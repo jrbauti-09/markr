@@ -3,6 +3,7 @@ import { useParams, useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { editLandmark } from "../../store/landmark";
 import Search from "../LandmarkForm/Search";
+import poweredByGoogle from "../../images/powered_by_google_on_white_hdpi.png";
 
 import "./LandmarkEditForm.css";
 
@@ -57,8 +58,8 @@ export default function LandmarkEditForm() {
     if (!name.length) errors.push("Please include LandMark name.");
     if (!imageUrl.match(/^https?:\/\/.+\/.+$/) && imageUrl.length > 0)
       errors.push("This is not a valid url.");
-    if (!lat.length) errors.push("Please provide latitude coordinates.");
-    if (!lng.length) errors.push("Please provide longitude coordinates.");
+    if (!lat) errors.push("Please provide latitude coordinates.");
+    if (!lng) errors.push("Please provide longitude coordinates.");
     setValidationErrors(errors);
   }, [name, imageUrl, lat, lng]);
 
@@ -77,6 +78,7 @@ export default function LandmarkEditForm() {
                 </li>
               ))}
           </ul>
+          <label className="label_form">Name of LandMark:</label>
           <div className="form_element">
             <input
               type="text"
@@ -86,6 +88,7 @@ export default function LandmarkEditForm() {
               placeholder="Name Of Landmark"
             ></input>
           </div>
+          <label className="label_form">Image Url:</label>
           <div className="form_element">
             <input
               type="text"
@@ -95,15 +98,17 @@ export default function LandmarkEditForm() {
               placeholder="https://wallpaperaccess.com/full/276843.jpg"
             ></input>
           </div>
+          <label className="label_form">Description:</label>
           <div className="form_element">
             <textarea
               type="text"
               value={description}
-              className="landmark_form_input"
+              className="landmark_form_input textarea"
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Description of landmark here.."
             ></textarea>
           </div>
+          <label className="label_form">Latitude coordinate:</label>
           <div className="form_element">
             <input
               type="text"
@@ -113,6 +118,7 @@ export default function LandmarkEditForm() {
               placeholder="36.0544"
             ></input>
           </div>
+          <label className="label_form">Longitude coordinate:</label>
           <div className="form_element">
             <input
               type="text"
@@ -127,11 +133,20 @@ export default function LandmarkEditForm() {
             type="submit"
             disabled={validationErrors.length > 0}
           >
-            Post New Landmark!
+            Edit Landmark!
           </button>
         </form>
       </div>
-      <Search setLat={setLat} setLng={setLng} />
+      <div>
+        <Search setLat={setLat} setLng={setLng} />
+        <div className="powered_by_google_container">
+          <img
+            src={poweredByGoogle}
+            alt="Google api"
+            className="powered_by_google"
+          ></img>
+        </div>
+      </div>
     </div>
   );
 }
