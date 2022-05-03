@@ -76,7 +76,8 @@ export const editLandmark = (landMarkId, data) => async (dispatch) => {
 // Thunk for deleting a landmark.
 
 export const deleteLandmark = (landMarkId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/landmarks/${landMarkId}`, {
+  // console.log(landMarkId, "LANDMARKID");
+  const response = await csrfFetch(`/api/landmarks/delete/${landMarkId}`, {
     method: "DELETE",
   });
 

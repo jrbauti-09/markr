@@ -16,6 +16,7 @@ export default function Collections() {
   const [tempimgSrc, setTempImgSrc] = useState("");
   const [modelId, setModelId] = useState("");
   const [deleteModal, setDeleteModal] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
 
   // console.log(deleteModal);
 
@@ -31,7 +32,14 @@ export default function Collections() {
 
   let deleteForm;
   if (deleteModal) {
-    deleteForm = <DeleteLandmark props={modelId} set={setDeleteModal} />;
+    deleteForm = (
+      <DeleteLandmark
+        props={modelId}
+        set={setDeleteModal}
+        confirmDelete={confirmDelete}
+        setConfirmDelete={setConfirmDelete}
+      />
+    );
   }
 
   //   console.log(sessionUser, "sessionUser");
@@ -39,7 +47,7 @@ export default function Collections() {
 
   useEffect(() => {
     dispatch(getUserLandmarks(sessionUser.id));
-  }, [dispatch, sessionUser.id]);
+  }, [dispatch, sessionUser.id, confirmDelete]);
 
   useEffect(() => {
     dispatch(getUsers());

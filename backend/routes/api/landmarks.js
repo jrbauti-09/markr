@@ -85,14 +85,19 @@ router.put(
 );
 
 router.delete(
-  "/:id",
+  "/delete/:id",
   asyncHandler(async (req, res, next) => {
     const landMarkId = req.params.id;
 
     const landMarkToDelete = await Landmark.findByPk(landMarkId);
+    const reviewsToDelete = await Review.findAll({
+      where: {
+        landMarkId,
+      },
+    });
 
+    reviewsToDelete.forEach(async (review) => await review.destroy());
     await landMarkToDelete.destroy();
-
     res.json({
       landMarkToDelete,
     });

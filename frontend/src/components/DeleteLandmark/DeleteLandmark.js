@@ -10,6 +10,8 @@ export default function DeleteLandmark(props) {
 
   let setDeleteModal = props.set;
   let landMarkId = props.props;
+  let confirmDelete = props.confirmDelete;
+  let setConfirmDelete = props.setConfirmDelete;
 
   //   console.log(landMarkId);
 
@@ -18,9 +20,10 @@ export default function DeleteLandmark(props) {
 
     window.alert("Successful delete.");
     setDeleteModal(false);
+    setConfirmDelete(!confirmDelete);
     // TO DO, dispatch to THUNK.
     dispatch(deleteLandmark(landMarkId));
-    history.push("/dashboard");
+    history.push("/collections");
   };
 
   return (
@@ -34,15 +37,15 @@ export default function DeleteLandmark(props) {
         >
           CONFIRM
         </button>
-        <button
-          className="cancel_button"
-          type="button"
-          onClick={() => setDeleteModal(false)}
-          style={{ cursor: "pointer" }}
-        >
-          CANCEL
-        </button>
       </form>
+      <button
+        className="cancel_button"
+        type="button"
+        onClick={() => setDeleteModal(false)}
+        style={{ cursor: "pointer" }}
+      >
+        CANCEL
+      </button>
     </div>
   );
 }
