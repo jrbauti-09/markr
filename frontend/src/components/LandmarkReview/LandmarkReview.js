@@ -25,59 +25,61 @@ export default function LandmarkReview({ reviews, landMarkId }) {
   // then we display buttons.
 
   return (
-    <div className="review_list">
-      <ul>
-        {reviews.map((review) => {
-          // review.userId gives us the user's Id.
-          const index = review.userId - 1;
-          let userInfo;
-          if (!usersArray.length) {
-            userInfo = usersArray[index];
-          }
-          let validUser;
-          if (userInfo) {
-            validUser = userInfo.username;
-          }
-          return (
-            <>
-              <li className="review" key={review.id}>
-                {review.review}
-              </li>
-              <span className="review_user">
-                From:{usersArray[review.userId - 1].username}
-              </span>
-              <span>{review.createdAt.slice(0, 10)}</span>
-              <div
-                className="review_edit_delete_button_container"
-                style={{ display: "flex", justifyContent: "flex-end" }}
-              >
-                {" "}
-                <div
-                  className={
-                    userSession.id === review.userId ? "unhidden" : "hidden"
-                  }
-                >
-                  <button className="review_edit_button">
-                    <Link
-                      to={`/reviews/edit/${review.id}`}
-                      style={{ color: "black", textDecoration: "none" }}
-                    >
-                      EDIT
-                    </Link>
-                  </button>
-                </div>
-              </div>
-            </>
-          );
-        })}
-      </ul>
+    <>
       <div className="review_link_main_container">
         <div className="review_link_container">
           <Link className="review_link" to={`/landmark/review/${landMarkId}`}>
-            Here
+            Add a review!
           </Link>
         </div>
       </div>
-    </div>
+      <div className="review_list">
+        <ul>
+          {reviews.map((review) => {
+            // review.userId gives us the user's Id.
+            const index = review.userId - 1;
+            let userInfo;
+            if (!usersArray.length) {
+              userInfo = usersArray[index];
+            }
+            let validUser;
+            if (userInfo) {
+              validUser = userInfo.username;
+            }
+            return (
+              <>
+                <li className="review" key={review.id}>
+                  {review.review}
+                </li>
+                <span className="review_user">
+                  From: {usersArray[review.userId - 1].username}
+                </span>
+                <span>{review.createdAt.slice(0, 10)}</span>
+                <div
+                  className="review_edit_delete_button_container"
+                  style={{ display: "flex", justifyContent: "flex-end" }}
+                >
+                  {" "}
+                  <div
+                    className={
+                      userSession.id === review.userId ? "unhidden" : "hidden"
+                    }
+                  >
+                    <button className="review_edit_button">
+                      <Link
+                        to={`/reviews/edit/${review.id}`}
+                        className="edit_button_link_review"
+                      >
+                        EDIT
+                      </Link>
+                    </button>
+                  </div>
+                </div>
+              </>
+            );
+          })}
+        </ul>
+      </div>
+    </>
   );
 }
