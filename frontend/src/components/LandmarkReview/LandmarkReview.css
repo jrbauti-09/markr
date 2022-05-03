@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Radio+Canada&family=Raleway:wght@100;300&family=Roboto&display=swap");
 
 .review {
   font-weight: 700;
@@ -8,12 +9,24 @@
   padding: 30px;
 }
 
+.review_post_icon {
+  /* background-color: #ffee00; */
+  height: 32px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
 .review_user {
   font-size: small;
+  color: rgb(114, 112, 112);
   padding: 30px;
   font-weight: bolder;
   width: 300px;
   transform: translateX(30px);
+}
+
+.review_created {
+  font-size: small;
 }
 
 .review_link {
@@ -25,7 +38,7 @@
   /* background-color: red; */
   /* border: 1px solid red; */
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 150px;
   height: 50px;
@@ -49,10 +62,7 @@ button {
 
 .review_edit_button {
   margin-right: 5px;
-}
-
-.review_edit_button {
-  margin-right: 5px;
+  margin-bottom: 8px;
 }
 
 .review_edit_button {

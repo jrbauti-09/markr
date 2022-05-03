@@ -145,7 +145,14 @@ export default function LandmarkDetail() {
         <div className="landmark_description_container">
           <h1 className="landmark_description_header">{landMark.name}</h1>
           <p className="landmark_description">{landMark.description}</p>
-          <p>Posted By: on {date}</p>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <p
+              className="landmark_description_p"
+              style={{ marginRight: "25px" }}
+            >
+              Posted By: on {date}
+            </p>
+          </div>
         </div>
       </div>
     </>

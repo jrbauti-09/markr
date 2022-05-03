@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers } from "../../store/user";
 import { Link } from "react-router-dom";
+import addPost from "../../images/rate-review_118747.png";
 import "./LandmarkReview.css";
 
 export default function LandmarkReview({ reviews, landMarkId }) {
@@ -29,7 +30,7 @@ export default function LandmarkReview({ reviews, landMarkId }) {
       <div className="review_link_main_container">
         <div className="review_link_container">
           <Link className="review_link" to={`/landmark/review/${landMarkId}`}>
-            Add a review!
+            <img className="review_post_icon" src={addPost} alt=""></img>
           </Link>
         </div>
       </div>
@@ -51,10 +52,14 @@ export default function LandmarkReview({ reviews, landMarkId }) {
                 <li className="review" key={review.id}>
                   {review.review}
                 </li>
-                <span className="review_user">
-                  From: {usersArray[review.userId - 1].username}
-                </span>
-                <span>{review.createdAt.slice(0, 10)}</span>
+                <div className="review_user_details_container">
+                  <span className="review_user">
+                    From: {usersArray[review.userId - 1].username}
+                  </span>
+                  <span className="review_created">
+                    on {review.createdAt.slice(0, 10)}
+                  </span>
+                </div>
                 <div
                   className="review_edit_delete_button_container"
                   style={{ display: "flex", justifyContent: "flex-end" }}

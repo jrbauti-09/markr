@@ -1,6 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Radio+Canada&family=Raleway:wght@100;300&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Radio+Canada&family=Raleway:wght@100;300&family=Roboto&display=swap");
+
 .reviews_container {
   margin: 10px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   width: 50%;
   border-radius: 10px;
   height: 300px;
@@ -32,7 +36,7 @@
 
 .landmark_description_container {
   margin: 10px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border-radius: 10px;
   transition: 1s;
   width: 80%;
@@ -44,17 +48,30 @@
 
 .landmark_description {
   padding: 20px;
-  font-size: large;
+  font-size: 16px;
   text-indent: 30px;
-  /* font-family: will decide what font family */
+  font-family: "Radio Canada";
+  font-weight: 100;
+}
+
+.landmark_description_p {
+  font-size: small;
+  color: rgb(0, 162, 255);
 }
 
 .landmark_description_header {
+  font-family: "Radio Canada", sans-serif;
+  background-color: rgb(127, 255, 238);
+  border-bottom: 1.5px solid black;
+  border-top: 10px;
   font-weight: 700;
-  padding: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .reviews_header {
+  font-family: "Radio Canada", sans-serif;
   background-color: rgb(127, 255, 238);
   border-bottom: 1.5px solid black;
   padding-left: 10px;
@@ -97,4 +114,16 @@
 
 .image_landmark:hover {
   transform: translateX(-25px);
+}
+
+.review {
+  font-family: "Radio Canada";
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.review:hover {
+  background-color: rgb(238, 236, 236);
 }
