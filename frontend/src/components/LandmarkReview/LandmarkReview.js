@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers } from "../../store/user";
 import { Link } from "react-router-dom";
@@ -10,6 +11,7 @@ export default function LandmarkReview({ reviews, landMarkId }) {
   // reviews is an array of reviews for the specific landmark.
 
   const dispatch = useDispatch();
+  const history = useHistory();
   const usersArray = useSelector((state) => Object.values(state.users));
   const userSession = useSelector((state) => state.session.user);
 
@@ -24,6 +26,11 @@ export default function LandmarkReview({ reviews, landMarkId }) {
   // review button logic:
   // if userSession.id === review.userId
   // then we display buttons.
+
+  const goToEditPage = (id) => {
+    // id refers to review.id
+    history.push(`/reviews/edit/${id}`);
+  };
 
   return (
     <>
@@ -70,7 +77,10 @@ export default function LandmarkReview({ reviews, landMarkId }) {
                       userSession.id === review.userId ? "unhidden" : "hidden"
                     }
                   >
-                    <button className="review_edit_button">
+                    <button
+                      className="review_edit_button"
+                      onClick={() => goToEditPage(review.id)}
+                    >
                       <Link
                         to={`/reviews/edit/${review.id}`}
                         className="edit_button_link_review"
