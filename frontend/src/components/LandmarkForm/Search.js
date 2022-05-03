@@ -51,12 +51,7 @@ export default function Search(props) {
 
   return (
     <div>
-      <h1>
-        find
-        <span role="img" aria-label="tent">
-          Hi There
-        </span>
-      </h1>
+      <h1></h1>
       <Searching setLat={props.setLat} setLng={props.setLng} panTo={panTo} />
       <GoogleMap
         mapContainerStyle={mapContainerStyle}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { editLandmark } from "../../store/landmark";
+import Search from "../LandmarkForm/Search";
 
 import "./LandmarkEditForm.css";
 
@@ -129,6 +130,7 @@ export default function LandmarkEditForm() {
           </button>
         </form>
       </div>
+      <Search setLat={setLat} setLng={setLng} />
     </div>
   );
 }
