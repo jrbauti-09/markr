@@ -15,6 +15,10 @@
   /* margin-bottom: 30px; */
 }
 
+.review_edit_form_image:hover {
+  opacity: 0.94;
+}
+
 .review_edit_form_superdiv {
   display: flex;
   justify-content: center;
