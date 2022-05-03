@@ -55,8 +55,11 @@
 }
 
 .reviews_header {
+  background-color: rgb(127, 255, 238);
+  border-bottom: 1.5px solid black;
   padding-left: 10px;
   padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 ::-webkit-scrollbar {
