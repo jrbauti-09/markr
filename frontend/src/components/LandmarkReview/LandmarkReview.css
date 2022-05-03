@@ -28,13 +28,15 @@
   justify-content: center;
   align-items: center;
   width: 150px;
-  height: 75px;
+  height: 50px;
+  margin-left: 11px;
 }
 
 .review_link_main_container {
   width: auto;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  height: 50px;
 }
 
 .hidden {
@@ -52,3 +54,33 @@ button {
 .review_edit_button {
   margin-right: 5px;
 }
+
+.review_edit_button {
+  -webkit-appearance: none;
+  border: 1px solid #0077b4;
+  padding: 10px;
+  border: none;
+  background-color: #4556b4;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 5px;
+  width: 90%;
+  transform: translateX(-8px);
+}
+
+.review_edit_button:hover {
+  background-color: rgb(241, 132, 58);
+  color: rgb(8, 255, 8);
+  cursor: pointer;
+}
+
+.edit_button_link_review {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.edit_button_link_review:hover {
+  color: white;
+}
+
+/* CSS for post new review link. */
