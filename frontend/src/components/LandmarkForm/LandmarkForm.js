@@ -38,7 +38,7 @@ export default function LandmarkForm() {
 
   useEffect(() => {
     const errors = [];
-    if (!name.length) errors.push("Please include LandMark name.");
+    if (!name.length) errors.push("Please include Landmark name.");
     if (!imageUrl.match(/^https?:\/\/.+\/.+$/) && imageUrl.length > 0)
       errors.push("This is not a valid url.");
     if (!lat) errors.push("Please provide latitude coordinates.");
@@ -53,15 +53,17 @@ export default function LandmarkForm() {
           <div className="div_header_form">
             <h4 className="header_title">Post A New Landmark!</h4>
           </div>
-          <ul className="error_container">
-            {validationErrors.length > 0 &&
-              validationErrors.map((error) => (
-                <li className="error" key={error}>
-                  {error}
-                </li>
-              ))}
-          </ul>
-          <label className="label_form">Name of LandMark:</label>
+          <div className="error_container_div">
+            <ul className="error_container">
+              {validationErrors.length > 0 &&
+                validationErrors.map((error) => (
+                  <li className="error" key={error}>
+                    {error}
+                  </li>
+                ))}
+            </ul>
+          </div>
+          <label className="label_form">Name of Landmark:</label>
           <div className="form_element">
             <input
               type="text"

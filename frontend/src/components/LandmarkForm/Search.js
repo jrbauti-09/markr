@@ -112,7 +112,7 @@ function Searching(props) {
           onChange={(e) => setValue(e.target.value)}
           disabled={!ready}
           className="combobox_input"
-          placeholder="Enter address of your landmark"
+          placeholder="Search Landmark for coordinates."
         />
         <ComboboxPopover style={{ backgroundColor: "whitesmoke" }}>
           {status === "OK" &&
