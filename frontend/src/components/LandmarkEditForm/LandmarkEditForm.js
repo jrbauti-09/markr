@@ -47,12 +47,8 @@ export default function LandmarkEditForm() {
 
     const updatedLandMark = await dispatch(editLandmark(landMarkId, data));
 
-    // console.log(updatedLandMark, "Updated landmark");
+    history.push(`/landmarks/${landMarkId}`);
 
-    if (updatedLandMark) {
-      //   history.push(`/landmarks/${landMarkId}`);
-      history.push("/collections");
-    }
     // todo. dispatch to update thunk.
   };
 
