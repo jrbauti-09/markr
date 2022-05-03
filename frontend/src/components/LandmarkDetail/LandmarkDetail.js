@@ -93,8 +93,6 @@ export default function LandmarkDetail() {
   // get date of publication.
   const date = landMark.createdAt.slice(0, 10);
 
-  // console.log(author, "author");
-
   return (
     <>
       <div className="map_div">

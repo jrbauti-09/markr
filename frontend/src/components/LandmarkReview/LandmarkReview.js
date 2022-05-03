@@ -66,17 +66,6 @@ export default function LandmarkReview({ reviews, landMarkId }) {
                     </Link>
                   </button>
                 </div>
-                <div
-                  className={
-                    userSession.id === review.userId ? "unhidden" : "hidden"
-                  }
-                >
-                  <button className="review_edit_button">
-                    <Link style={{ color: "black", textDecoration: "none" }}>
-                      DELETE
-                    </Link>
-                  </button>
-                </div>
               </div>
             </>
           );
