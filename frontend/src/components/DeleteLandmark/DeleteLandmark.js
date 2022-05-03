@@ -23,7 +23,8 @@ export default function DeleteLandmark(props) {
     setConfirmDelete(!confirmDelete);
     // TO DO, dispatch to THUNK.
     dispatch(deleteLandmark(landMarkId));
-    history.push("/collections");
+    // history.push("/collections");
+    window.location.reload(true);
   };
 
   return (

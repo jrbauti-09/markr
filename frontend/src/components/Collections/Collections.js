@@ -53,9 +53,9 @@ export default function Collections() {
     dispatch(getUsers());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getLandmarks());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getLandmarks());
+  // }, [dispatch]);
 
   // This is for the modal.
   const getImg = (imgSrc, landmarkId) => {
