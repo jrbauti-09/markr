@@ -12,6 +12,8 @@ export default function LandmarkReview({ reviews, landMarkId }) {
   const usersArray = useSelector((state) => Object.values(state.users));
   const userSession = useSelector((state) => state.session.user);
 
+  // console.log(usersArray);
+
   useEffect(() => {
     dispatch(getUsers());
   }, [dispatch]);
@@ -41,7 +43,9 @@ export default function LandmarkReview({ reviews, landMarkId }) {
               <li className="review" key={review.id}>
                 {review.review}
               </li>
-              <span className="review_user">From:</span>
+              <span className="review_user">
+                From:{usersArray[review.userId - 1].username}
+              </span>
               <span>{review.createdAt.slice(0, 10)}</span>
               <div
                 className="review_edit_delete_button_container"
