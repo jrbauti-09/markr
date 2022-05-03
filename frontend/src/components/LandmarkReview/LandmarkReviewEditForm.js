@@ -97,13 +97,27 @@ export default function LandmarkReviewEditForm() {
                   borderRadius: "8px",
                 }}
               ></textarea>
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginBottom: "10px",
+                }}
+              >
                 <button
                   className="review_edit_form_button"
                   type="submit"
                   disabled={validationErrors.length > 0}
                 >
                   Edit Review
+                </button>
+              </div>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <button
+                  className="review_edit_form_delete_button"
+                  disabled={validationErrors.length > 0}
+                >
+                  Delete Review
                 </button>
               </div>
             </form>
