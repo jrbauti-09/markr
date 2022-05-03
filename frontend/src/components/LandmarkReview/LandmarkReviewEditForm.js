@@ -58,11 +58,13 @@ export default function LandmarkReviewEditForm() {
     <>
       <div className="review_edit_form_superdiv">
         <div>
-          <img
-            className="review_edit_form_image"
-            src={landMark.imageUrl}
-            alt=""
-          ></img>
+          <Link to={`/landmarks/${landMarkId}`}>
+            <img
+              className="review_edit_form_image"
+              src={landMark.imageUrl}
+              alt=""
+            ></img>
+          </Link>
         </div>
         <div className="review_edit_main_container">
           <div className="review_edit_form_container">

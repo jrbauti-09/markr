@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
 import { postReview } from "../../store/review";
 
 import "./LandmarkReviewForm.css";
@@ -46,11 +46,13 @@ export default function LandmarkReviewForm() {
   return (
     <div className="review_post_form_superdiv">
       <div>
-        <img
-          className="review_edit_form_image"
-          src={landMark.imageUrl}
-          style={{ border: "1.5px solid beige" }}
-        ></img>
+        <Link to={`/landmarks/${landMark.id}`}>
+          <img
+            className="review_edit_form_image"
+            src={landMark.imageUrl}
+            style={{ border: "1.5px solid beige" }}
+          ></img>
+        </Link>
       </div>
       <div className="review_edit_main_container">
         <div className="review_edit_form_container">
