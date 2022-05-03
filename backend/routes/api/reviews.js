@@ -66,4 +66,19 @@ router.put(
   })
 );
 
+//Route to delete review based on id.
+router.delete(
+  "/:reviewId",
+  asyncHandler(async (req, res, next) => {
+    const reviewId = req.params.reviewId;
+
+    const reviewToDelete = await Review.findByPk(reviewId);
+    await reviewToDelete.destroy();
+
+    res.json({
+      reviewToDelete,
+    });
+  })
+);
+
 module.exports = router;

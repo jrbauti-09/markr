@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, Link } from "react-router-dom";
 import { editReview } from "../../store/review";
+import { deleteReview } from "../../store/review";
 
 import "./LandmarkReviewEditForm.css";
-
-// TODO: import thunk.
 
 export default function LandmarkReviewEditForm() {
   const { reviewId } = useParams();
@@ -39,6 +38,13 @@ export default function LandmarkReviewEditForm() {
     // TODO: dispatch to thunk.
 
     const updatedReview = await dispatch(editReview(reviewToEdit.id, data));
+    history.push(`/landmarks/${landMarkId}`);
+  };
+
+  const handleDelete = async (e) => {
+    window.alert("Review was deleted.");
+    //place id of review.
+    dispatch(deleteReview(reviewId));
     history.push(`/landmarks/${landMarkId}`);
   };
 
@@ -112,15 +118,16 @@ export default function LandmarkReviewEditForm() {
                   Edit Review
                 </button>
               </div>
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <button
-                  className="review_edit_form_delete_button"
-                  disabled={validationErrors.length > 0}
-                >
-                  Delete Review
-                </button>
-              </div>
             </form>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <button
+                className="review_edit_form_delete_button"
+                disabled={validationErrors.length > 0}
+                onClick={() => handleDelete()}
+              >
+                Delete Review
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -24,7 +24,10 @@ const edit = (review) => ({
   review,
 });
 
-const deleteReview = () => ({});
+const deleteRev = (review) => ({
+  type: DELETE,
+  review,
+});
 
 // Thunk for getting all reviews for a landmark.
 
@@ -69,6 +72,19 @@ export const editReview = (reviewId, data) => async (dispatch) => {
   }
 };
 
+// Create thunk for deleteReview
+
+export const deleteReview = (reviewId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    const deleteReview = await response.json();
+    dispatch(deleteRev(deleteReview.reviewToDelete));
+  }
+};
+
 // Reducer.
 // Ex. data for review.
 /*
@@ -109,6 +125,13 @@ const reviewReducer = (state = initialState, action) => {
         [action.review.id]: action.review,
       };
       return editState;
+    case DELETE: {
+      const newState = {
+        ...state,
+      };
+      delete newState[action.review.id];
+      return newState;
+    }
     default:
       return state;
   }
