@@ -80,7 +80,7 @@ export default function Gallery() {
             </span>
           </a>
         </div>
-        <div className="container_links">
+        <div className="container_links_gallery">
           <div>
             <Link className="edit_landmark_link" to={`/landmarks/${modelId}`}>
               <img src={map} alt="map_button"></img>
