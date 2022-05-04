@@ -92,15 +92,12 @@ export default function Collections() {
         </div>
         <div className="container_links">
           <div>
-            <Link className="modal_link" to={`/landmarks/${modelId}`}>
+            <Link className="modal_link" to={`/landmark/edit/${modelId}`}>
               <img src={edit} alt="edit_button"></img>
             </Link>
           </div>
           <div>
-            <Link
-              className="edit_landmark_link"
-              to={`/landmark/edit/${modelId}`}
-            >
+            <Link className="edit_landmark_link" to={`/landmarks/${modelId}`}>
               <img src={map} alt="map_button"></img>
             </Link>
           </div>

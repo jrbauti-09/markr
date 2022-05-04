@@ -6,6 +6,7 @@ import { getUsers } from "../../store/user";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import close from "../../images/close_icon.png";
 import "./Gallery.css";
+import map from "../../images/map_button.png";
 
 //Google api
 import {
@@ -67,9 +68,25 @@ export default function Gallery() {
           className="icon_modal"
           onClick={() => setModel(false)}
         ></img>
-        <Link className="modal_link" to={`/landmarks/${modelId}`}>
-          Landmark detail page...
-        </Link>
+        <div className="close_icon" onClick={() => setModel(false)}>
+          <a href="#">
+            <span class="left">
+              <span class="circle-left"></span>
+              <span class="circle-right"></span>
+            </span>
+            <span class="right">
+              <span class="circle-left"></span>
+              <span class="circle-right"></span>
+            </span>
+          </a>
+        </div>
+        <div className="container_links">
+          <div>
+            <Link className="edit_landmark_link" to={`/landmarks/${modelId}`}>
+              <img src={map} alt="map_button"></img>
+            </Link>
+          </div>
+        </div>
       </div>
       <div className="gallery">
         {landMarks.map((landmark) => {
