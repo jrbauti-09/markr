@@ -65,3 +65,55 @@ a {
   margin-right: 5px;
   margin-left: 5px;
 }
+
+/* Profile button for logout*/
+
+.logout-btn {
+  border: 1.4px solid #a8927a;
+  color: whitesmoke;
+  border-radius: 3px;
+  margin-top: 1.5rem;
+  padding: 5px;
+  width: 240px;
+  font-weight: 700;
+  background-color: whitesmoke;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #a8927a;
+  background-color: #a8927a;
+}
+
+.logout-btn:hover {
+  color: #fff;
+  transform: scale(1.06);
+  cursor: pointer;
+}
+
+.logout-btn {
+  border: none;
+  background: none;
+  color: whitesmoke;
+  font-size: 25px;
+  transition-duration: 0.3s;
+}
+
+.logout-btn:hover {
+  transform: scale(1.5);
+  color: white;
+  cursor: pointer;
+}
+
+.dashboard_nav_link {
+  border: none;
+  background: none;
+  color: whitesmoke;
+  /* font-size: 25px; */
+  transition-duration: 0.3s;
+  margin-right: 2em;
+}
+
+.dashboard_nav_link:hover {
+  transform: scale(1.5);
+  color: white;
+  cursor: pointer;
+}

@@ -34,21 +34,9 @@ export default function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <button className="logout-btn" onClick={logout}>
+        <i className="fas fa-power-off"></i>
       </button>
-      {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <button className="button_logout" onClick={logout}>
-              <i className="fas fa-power-off"></i>
-              Log Out
-            </button>
-          </li>
-        </ul>
-      )}
     </>
   );
 }
