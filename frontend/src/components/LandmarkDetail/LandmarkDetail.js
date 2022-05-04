@@ -45,9 +45,9 @@ export default function LandmarkDetail() {
   const reviews = useSelector((state) => Object.values(state.reviews));
   const users = useSelector((state) => Object.values(state.users));
 
-  if (!landMarks.length) {
-    history.push("/");
-  }
+  // if (!landMarks.length) {
+  //   history.push("/");
+  // }
 
   //   console.log(reviews)
   useEffect(() => {
@@ -78,8 +78,8 @@ export default function LandmarkDetail() {
   //     setLongitude(parseFloat(landMark.lng));
   //   }, [landMarks, latitude, longitude]);
 
-  const latitude = parseFloat(landMark.lat);
-  const longitude = parseFloat(landMark.lng);
+  const latitude = parseFloat(landMark?.lat);
+  const longitude = parseFloat(landMark?.lng);
 
   // Put load script here.
 
@@ -87,11 +87,11 @@ export default function LandmarkDetail() {
 
   const author = users.find((user) => {
     //eslint-disable-next-line
-    return user.id == landMark.userId;
+    return user.id == landMark?.userId;
   });
 
   // get date of publication.
-  const date = landMark.createdAt.slice(0, 10);
+  const date = landMark?.createdAt.slice(0, 10);
 
   return (
     <>
