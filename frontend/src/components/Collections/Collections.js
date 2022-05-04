@@ -78,6 +78,18 @@ export default function Collections() {
           onClick={() => setModel(false)}
           alt="img"
         ></img>
+        <div className="close_icon" onClick={() => setModel(false)}>
+          <a href="#">
+            <span class="left">
+              <span class="circle-left"></span>
+              <span class="circle-right"></span>
+            </span>
+            <span class="right">
+              <span class="circle-left"></span>
+              <span class="circle-right"></span>
+            </span>
+          </a>
+        </div>
         <div className="container_links">
           <div>
             <Link className="modal_link" to={`/landmarks/${modelId}`}>

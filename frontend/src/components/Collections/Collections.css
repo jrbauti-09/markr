@@ -36,20 +36,11 @@
   border-radius: 5px;
 }
 
-.model.open .icon_modal {
+.model.open .close_icon {
   position: fixed;
-  top: 10px;
-  right: 10px;
-  width: 2.5rem;
-  height: 2.5rem;
-  padding: 5px;
+  top: 8rem;
+  right: 7rem;
   cursor: pointer;
-  background-color: whitesmoke;
-}
-
-.icon_modal:hover {
-  border: 1.2px solid red;
-  background-color: lightcoral;
 }
 
 .edit_landmark_link {
@@ -102,4 +93,105 @@
 .modal_img {
   width: 200px;
   margin: 0 2em;
+}
+
+/* ___________________________________________________________________
+*/
+
+.close_icon a {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  margin-top: -50px;
+  margin-right: -50px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  opacity: 1;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
+  -moz-box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
+  box-shadow: 0px 0px 30px 0px rgba(247, 149, 29, 0.5);
+}
+.close_icon a > span {
+  background-color: #f5a700;
+  display: block;
+  height: 12px;
+  border-radius: 6px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  position: absolute;
+  top: 50%;
+  margin-top: -6px;
+  left: 18px;
+  width: 64px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+}
+.close_icon a > span span {
+  display: block;
+  background-color: #ed7f00;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.close_icon a > span.left {
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+.close_icon a > span.left .circle-left {
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  margin-left: 0;
+}
+.close_icon a > span.left .circle-right {
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  margin-left: 52px;
+}
+.close_icon a > span.right {
+  transform: rotate(-45deg);
+  transform-origin: center;
+}
+.close_icon a > span.right .circle-left {
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  margin-left: 0;
+}
+.close_icon a > span.right .circle-right {
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  margin-left: 52px;
+}
+.close_icon a:hover > span {
+  background-color: #2faee0;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.close_icon a:hover > span span {
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  background-color: #008ac9;
+}
+.close_icon a:hover > span.left .circle-left {
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  margin-left: 52px;
+}
+.close_icon a:hover > span.left .circle-right {
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  margin-left: 0;
+}
+.close_icon a:hover > span.right .circle-left {
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  margin-left: 52px;
+}
+.close_icon a:hover > span.right .circle-right {
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  margin-left: 0;
 }
