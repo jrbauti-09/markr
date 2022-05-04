@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { editLandmark } from "../../store/landmark";
+import { getUserLandmarks } from "../../store/usercollection";
 import Search from "../LandmarkForm/Search";
 import poweredByGoogle from "../../images/powered_by_google_on_white_hdpi.png";
 
@@ -16,6 +17,10 @@ export default function LandmarkEditForm() {
   const userCollection = useSelector((state) =>
     Object.values(state.collection)
   );
+
+  const userSession = useSelector((state) => {
+    return state.session.user;
+  });
 
   const landMarkToEdit = userCollection.find((landmark) => {
     // console.log(landmark.id, landMarkId);
@@ -62,6 +67,10 @@ export default function LandmarkEditForm() {
     if (!lng) errors.push("Please provide longitude coordinates.");
     setValidationErrors(errors);
   }, [name, imageUrl, lat, lng]);
+
+  useEffect(() => {
+    dispatch(getUserLandmarks(userSession.id));
+  }, [dispatch]);
 
   return (
     <div className="master_form_div">
