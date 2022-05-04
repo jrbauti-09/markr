@@ -82,3 +82,55 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.search_input {
+  /* transform: translateY(65px); */
+  background-color: rgba(145, 143, 143, 0.753);
+  border-radius: 5px;
+  margin-left: 30px;
+  transform: translateY(26px);
+}
+.search_input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.877);
+}
+.search_input:focus {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.search_input:focus::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.521);
+}
+
+.map_input {
+  /* border: 1px solid rgb(0, 255, 55); */
+}
+
+.combobox {
+  /* border: 1px solid rgb(55, 0, 255); */
+}
+
+/* writing-mode: horizontal-tb !important;
+font-style: ;
+font-variant-ligatures: ;
+font-variant-caps: ;
+font-variant-numeric: ;
+font-variant-east-asian: ;
+font-weight: ;
+font-stretch: ;
+font-size: ;
+font-family: ;
+text-rendering: auto;
+color: -internal-light-dark(black, white);
+letter-spacing: normal;
+word-spacing: normal;
+line-height: normal;
+text-transform: none;
+text-indent: 0px;
+text-shadow: none;
+display: inline-block;
+text-align: start;
+appearance: auto;
+-webkit-rtl-ordering: logical;
+cursor: text;
+background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59)); */

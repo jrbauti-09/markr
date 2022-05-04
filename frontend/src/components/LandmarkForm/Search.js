@@ -50,15 +50,18 @@ export default function Search(props) {
   }, []);
 
   return (
-    <div>
-      <h1></h1>
-      <Searching setLat={props.setLat} setLng={props.setLng} panTo={panTo} />
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        zoom={10}
-        center={center}
-        onLoad={onMapLoad}
-      ></GoogleMap>
+    <div className="map_input_container">
+      <div className="map_input">
+        <Searching setLat={props.setLat} setLng={props.setLng} panTo={panTo} />
+      </div>
+      <div>
+        <GoogleMap
+          mapContainerStyle={mapContainerStyle}
+          zoom={10}
+          center={center}
+          onLoad={onMapLoad}
+        ></GoogleMap>
+      </div>
     </div>
   );
 }
@@ -84,6 +87,7 @@ function Searching(props) {
   return (
     <div className="search">
       <Combobox
+        className="combobox"
         onSelect={async (address) => {
           //We will convert to coordinates.
           setValue(address, false);
@@ -111,7 +115,7 @@ function Searching(props) {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           disabled={!ready}
-          className="combobox_input"
+          className="search_input"
           placeholder="Search Landmark for coordinates."
         />
         <ComboboxPopover style={{ backgroundColor: "whitesmoke" }}>

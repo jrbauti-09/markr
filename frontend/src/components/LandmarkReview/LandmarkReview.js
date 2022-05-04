@@ -61,7 +61,7 @@ export default function LandmarkReview({ reviews, landMarkId }) {
                 </li>
                 <div className="review_user_details_container">
                   <span className="review_user">
-                    From: {usersArray[review.userId - 1].username}
+                    From: {usersArray[review.userId - 1]?.username}
                   </span>
                   <span className="review_created">
                     on {review.createdAt.slice(0, 10)}

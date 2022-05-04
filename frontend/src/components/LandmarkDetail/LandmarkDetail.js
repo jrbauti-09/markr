@@ -129,12 +129,12 @@ export default function LandmarkDetail() {
                 lng: longitude,
               }}
             >
-              <div>{landMark.name}</div>
+              <div>{landMark?.name}</div>
             </InfoWindow>
           )}
         </GoogleMap>
         <div className="image_div">
-          <img className="image_landmark" src={landMark.imageUrl}></img>
+          <img className="image_landmark" src={landMark?.imageUrl}></img>
         </div>
       </div>
       <div className="review_description_main_container">
@@ -143,14 +143,14 @@ export default function LandmarkDetail() {
           <LandmarkReview reviews={reviews} landMarkId={landMarkId} />
         </div>
         <div className="landmark_description_container">
-          <h1 className="landmark_description_header">{landMark.name}</h1>
-          <p className="landmark_description">{landMark.description}</p>
+          <h1 className="landmark_description_header">{landMark?.name}</h1>
+          <p className="landmark_description">{landMark?.description}</p>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <p
               className="landmark_description_p"
               style={{ marginRight: "25px" }}
             >
-              Posted By: on {date}
+              Posted By: {author?.username} on {date}
             </p>
           </div>
         </div>
