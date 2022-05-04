@@ -48,17 +48,6 @@ a {
   border-bottom: 1px solid red;
 }
 
-.nav_link_active {
-  border-bottom: 1px solid red;
-}
-
-.dashboard_nav_link {
-  font-size: 2em;
-  text-decoration: none;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
 .nav_home {
   font-size: 2em;
   text-decoration: none;
@@ -116,4 +105,19 @@ a {
   transform: scale(1.5);
   color: white;
   cursor: pointer;
+}
+
+.nav_link_active {
+  border-bottom: 1px solid rgb(255, 0, 0);
+}
+
+.dashboard_nav_link {
+  font-size: 2em;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.dashboard_nav_active {
+  border-bottom: 1px solid rgb(255, 0, 0);
 }

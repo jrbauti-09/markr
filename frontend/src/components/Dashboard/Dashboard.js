@@ -12,7 +12,8 @@ export default function Dashboard() {
   return (
     <>
       <h1 className="dashboard_header" style={{ textAlign: "center" }}>
-        Landmark Gallery
+        LANDMARK GALLERY
+        <div className="gallery_underline"></div>
       </h1>
       <Gallery />
     </>

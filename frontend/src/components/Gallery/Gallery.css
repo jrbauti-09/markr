@@ -1,11 +1,12 @@
 .gallery {
   -webkit-column-count: 3;
   -moz-column-count: 3;
-  column-count: 3;
+  column-count: 4;
   -webkit-column-width: 33%;
   -moz-column-width: 33%;
   column-width: 33%;
   padding: 0 12px;
+  margin: 0 0.1em;
 }
 
 .gallery .pics {
@@ -104,4 +105,10 @@
 .icon_modal:hover {
   border: 1.2px solid red;
   background-color: lightcoral;
+}
+
+.gallery_underline {
+  margin-top: 0.8em;
+  border-bottom: 1px solid white;
+  opacity: 0.8;
 }

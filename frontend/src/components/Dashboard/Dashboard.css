@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Oswald:wght@300&family=Radio+Canada&family=Raleway:wght@100;300&family=Roboto&display=swap");
+
 .image_tile {
   width: 550px;
   height: 530px;
@@ -7,5 +9,9 @@
 }
 
 .dashboard_header {
+  font-family: "Oswald", sans-serif;
+  font-size: 3em;
   color: white;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
