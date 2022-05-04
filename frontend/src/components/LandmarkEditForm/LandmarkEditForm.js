@@ -27,12 +27,12 @@ export default function LandmarkEditForm() {
     return landmark.id.toString() === landMarkId;
   });
 
-  const [userId, setUserId] = useState(landMarkToEdit.userId);
-  const [name, setName] = useState(landMarkToEdit.name);
-  const [imageUrl, setImageUrl] = useState(landMarkToEdit.imageUrl);
-  const [description, setDescription] = useState(landMarkToEdit.description);
-  const [lat, setLat] = useState(landMarkToEdit.lat);
-  const [lng, setLng] = useState(landMarkToEdit.lng);
+  const [userId, setUserId] = useState(landMarkToEdit?.userId);
+  const [name, setName] = useState(landMarkToEdit?.name);
+  const [imageUrl, setImageUrl] = useState(landMarkToEdit?.imageUrl);
+  const [description, setDescription] = useState(landMarkToEdit?.description);
+  const [lat, setLat] = useState(landMarkToEdit?.lat);
+  const [lng, setLng] = useState(landMarkToEdit?.lng);
   const [validationErrors, setValidationErrors] = useState([]);
 
   //   console.log(userId, name, imageUrl, description, lat, lng);
@@ -60,8 +60,8 @@ export default function LandmarkEditForm() {
 
   useEffect(() => {
     const errors = [];
-    if (!name.length) errors.push("Please include Landmark name.");
-    if (!imageUrl.match(/^https?:\/\/.+\/.+$/) && imageUrl.length > 0)
+    if (!name?.length) errors.push("Please include Landmark name.");
+    if (!imageUrl?.match(/^https?:\/\/.+\/.+$/) && imageUrl?.length > 0)
       errors.push("This is not a valid url.");
     if (!lat) errors.push("Please provide latitude coordinates.");
     if (!lng) errors.push("Please provide longitude coordinates.");
@@ -117,6 +117,10 @@ export default function LandmarkEditForm() {
               placeholder="Description of landmark here.."
             ></textarea>
           </div>
+          <h2 style={{ padding: "10px" }}>
+            Please use the search input above the google map
+            <br></br>for coordinates.
+          </h2>
           <label className="label_form">Latitude coordinate:</label>
           <div className="form_element">
             <input

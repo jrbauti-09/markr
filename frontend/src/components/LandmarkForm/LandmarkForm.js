@@ -93,6 +93,10 @@ export default function LandmarkForm() {
               placeholder="Description of landmark here.."
             ></textarea>
           </div>
+          <h2 style={{ padding: "10px" }}>
+            Please use the search input above the google map
+            <br></br>for coordinates.
+          </h2>
           <label className="label_form">Latitude coordinate:</label>
           <div className="form_element">
             <input

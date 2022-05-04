@@ -8,6 +8,8 @@ import DeleteLandmark from "../DeleteLandmark/DeleteLandmark";
 import "./Collections.css";
 import close from "../../images/close_icon.png";
 import bin from "../../images/garbage_trash_bin.ico";
+import edit from "../../images/Edit_button.png";
+import map from "../../images/map_button.png";
 
 export default function Collections() {
   const dispatch = useDispatch();
@@ -38,6 +40,7 @@ export default function Collections() {
         set={setDeleteModal}
         confirmDelete={confirmDelete}
         setConfirmDelete={setConfirmDelete}
+        setModel={setModel}
       />
     );
   }
@@ -78,7 +81,7 @@ export default function Collections() {
         <div className="container_links">
           <div>
             <Link className="modal_link" to={`/landmarks/${modelId}`}>
-              Landmark detail page...
+              <img src={edit} alt="edit_button"></img>
             </Link>
           </div>
           <div>
@@ -86,7 +89,7 @@ export default function Collections() {
               className="edit_landmark_link"
               to={`/landmark/edit/${modelId}`}
             >
-              Landmark edit page...
+              <img src={map} alt="map_button"></img>
             </Link>
           </div>
           <div>

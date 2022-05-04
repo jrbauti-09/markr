@@ -55,14 +55,15 @@
 .edit_landmark_link {
   transform: translateX(-30px);
   font-size: large;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .container_links {
   width: 300px;
   height: 400px;
   display: flex;
-  background-color: rgb(71, 67, 67);
+  background-color: beige;
+  margin: 0 1em;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -96,4 +97,9 @@
   width: 42px;
   height: 42px;
   cursor: pointer;
+}
+
+.modal_img {
+  width: 200px;
+  margin: 0 2em;
 }

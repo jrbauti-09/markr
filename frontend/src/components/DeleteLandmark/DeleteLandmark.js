@@ -12,6 +12,7 @@ export default function DeleteLandmark(props) {
   let landMarkId = props.props;
   let confirmDelete = props.confirmDelete;
   let setConfirmDelete = props.setConfirmDelete;
+  let setModel = props.setModel;
 
   //   console.log(landMarkId);
 
@@ -21,6 +22,7 @@ export default function DeleteLandmark(props) {
     window.alert("Successful delete.");
     setDeleteModal(false);
     setConfirmDelete(!confirmDelete);
+    setModel(false);
     // TO DO, dispatch to THUNK.
     dispatch(deleteLandmark(landMarkId));
     // history.push("/collections");
