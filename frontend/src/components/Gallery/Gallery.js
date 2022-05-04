@@ -96,11 +96,14 @@ export default function Gallery() {
               key={landmark.id}
               onClick={() => getImg(landmark.imageUrl, landmark.id)}
             >
-              <img
-                className="gallery_pic"
-                src={landmark.imageUrl}
-                style={{ width: "100%" }}
-              ></img>
+              <div className="gallery_div">
+                <img
+                  className="gallery_pic"
+                  src={landmark.imageUrl}
+                  style={{ width: "100%" }}
+                ></img>
+              </div>
+              <h1 className="gallery_header">{landmark?.name}</h1>
             </div>
           );
         })}

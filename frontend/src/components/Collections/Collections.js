@@ -70,6 +70,10 @@ export default function Collections() {
 
   return (
     <>
+      <h1 className="dashboard_header" style={{ textAlign: "center" }}>
+        COLLECTIONS GALLERY
+        <div className="gallery_underline"></div>
+      </h1>
       <div className={model ? "model open" : "model"}>
         <img className="modal_img" src={tempimgSrc} alt="img"></img>
         <img
@@ -121,12 +125,16 @@ export default function Collections() {
               key={landmark.id}
               onClick={() => getImg(landmark.imageUrl, landmark.id)}
             >
-              <img
-                className="gallery_pic"
-                src={landmark.imageUrl}
-                style={{ width: "100%" }}
-                alt="img"
-              ></img>
+              <div className="gallery_div">
+                <img
+                  className="gallery_pic"
+                  src={landmark.imageUrl}
+                  style={{ width: "100%" }}
+                  alt="img"
+                ></img>
+              </div>
+
+              <h1 className="gallery_header">{landmark?.name}</h1>
             </div>
           );
         })}
