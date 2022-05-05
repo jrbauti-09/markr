@@ -79,27 +79,27 @@ export default function LandmarkEditForm() {
     if (validationErrors.length > 0) {
       toast.error("Invalid form, please see error list.", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
     } else {
       toast.success("Successful edit, redirecting to details page..", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
       setTimeout(() => {
         // console.log("Your timeout works!");
         history.push(`/landmarks/${landMarkId}`);
-      }, 6000);
+      }, 3000);
     }
   };
 
@@ -189,15 +189,15 @@ export default function LandmarkEditForm() {
             <ToastContainer
               onClick={handleClick}
               position="top-right"
-              autoClose={5000}
+              autoClose={2000}
               hideProgressBar={false}
               newestOnTop={false}
               closeOnClick
               rtl={false}
               pauseOnFocusLoss
               draggable
-              pauseOnHover
               theme="dark"
+              style={{ fontSize: "medium" }}
             />
           </div>
         </div>

@@ -45,6 +45,16 @@
   width: 100%;
 }
 
+::-webkit-file-upload-button {
+  color: white;
+  background-color: #2845c7;
+  padding: 0.3em;
+  border-radius: 0.5em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
 .master_form_div {
   display: flex;
   justify-content: center;

@@ -14,6 +14,7 @@ export default function LandmarkForm() {
   const [name, setName] = useState("");
   // const [imageUrl, setImageUrl] = useState(""); pre aws
   const [validFile, setValidFile] = useState(true);
+  const [image, setImage] = useState(false);
   const [imageUrl, setImageUrl] = useState(null);
   const [description, setDescription] = useState("");
   const [lat, setLat] = useState("");
@@ -43,6 +44,7 @@ export default function LandmarkForm() {
   useEffect(() => {
     const errors = [];
     if (!name.length) errors.push("Please include Landmark name.");
+    if (!image) errors.push("Please provide an image.");
     if (!validFile) errors.push("Selected file invalid");
     if (!lat) errors.push("Please provide latitude coordinates.");
     if (!lng) errors.push("Please provide longitude coordinates.");
@@ -53,32 +55,38 @@ export default function LandmarkForm() {
     if (validationErrors.length > 0) {
       toast.error("Invalid information sent. Please see list of errors.", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
+        style: {
+          fontSize: "large",
+        },
       });
     } else {
       toast.success("Landmark posted, redirecting back to the explore page..", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
+        style: {
+          fontSize: "large",
+        },
       });
       setTimeout(() => {
         // console.log("Your timeout works!");
         history.push("/dashboard");
-      }, 6000);
+      }, 3000);
     }
   };
 
   const handleClick = () => {
-    history.push("/dashboard");
+    // history.push("/dashboard");
   };
 
   const uploadFile = async (e) => {
@@ -89,6 +97,7 @@ export default function LandmarkForm() {
       setValidFile(false);
     } else {
       setValidFile(true);
+      setImage(true);
       setValidationErrors([]);
       setImageUrl(file);
     }
@@ -121,11 +130,11 @@ export default function LandmarkForm() {
               placeholder="Name Of Landmark"
             ></input>
           </div>
-          <label className="label_form">Image Url:</label>
+          <label className="label_form">Upload Image:</label>
           <div className="form_element">
             <input
               type="file"
-              className="landmark_form_input"
+              className="landmark_form_input upload-button"
               onChange={uploadFile}
               accept="image/*"
             ></input>
@@ -178,15 +187,15 @@ export default function LandmarkForm() {
           <ToastContainer
             onClick={handleClick}
             position="top-right"
-            autoClose={5000}
+            autoClose={2000}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick
             rtl={false}
             pauseOnFocusLoss
             draggable
-            pauseOnHover
             theme="dark"
+            style={{ fontSize: "medium" }}
           />
         </div>
       </div>

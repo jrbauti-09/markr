@@ -34,6 +34,16 @@ export default function ProfileButton({ user }) {
 
   return (
     <>
+      <span
+        style={{
+          fontSize: "2em",
+          marginRight: "2em",
+          marginLeft: "2em",
+          color: "white",
+        }}
+      >
+        Welcome, {user?.username}
+      </span>
       <button className="logout-btn" onClick={logout}>
         <i className="fas fa-power-off"></i>
       </button>

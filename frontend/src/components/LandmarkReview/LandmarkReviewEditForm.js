@@ -49,7 +49,7 @@ export default function LandmarkReviewEditForm() {
     //place id of review.
     toast.success("Successful delete, redirecting to details page..", {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 1700,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -59,7 +59,7 @@ export default function LandmarkReviewEditForm() {
     setTimeout(() => {
       dispatch(deleteReview(reviewId));
       history.push(`/landmarks/${landMarkId}`);
-    }, 6000);
+    }, 2700);
   };
 
   useEffect(() => {
@@ -73,27 +73,27 @@ export default function LandmarkReviewEditForm() {
     if (validationErrors.length > 0) {
       toast.error("Invalid review, please see error list.", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1700,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
     } else {
       toast.success("Successful edit, redirecting to details page..", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1700,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
       setTimeout(() => {
         // console.log("Your timeout works!");
         history.push(`/landmarks/${landMarkId}`);
-      }, 6000);
+      }, 2700);
     }
   };
 
@@ -173,14 +173,13 @@ export default function LandmarkReviewEditForm() {
               <ToastContainer
                 onClick={handleClick}
                 position="top-right"
-                autoClose={5000}
+                autoClose={1700}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
                 rtl={false}
                 pauseOnFocusLoss
                 draggable
-                pauseOnHover
                 theme="dark"
               />
             </div>

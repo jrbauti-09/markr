@@ -22,10 +22,10 @@ export default function DeleteLandmark(props) {
     e.preventDefault();
     toast.success("Deleting landmark...", {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: true,
       progress: undefined,
     });
@@ -37,7 +37,7 @@ export default function DeleteLandmark(props) {
       dispatch(deleteLandmark(landMarkId));
       // history.push("/collections");
       window.location.reload(true);
-    }, 6000);
+    }, 3000);
   };
 
   const handleClick = () => {
@@ -74,8 +74,8 @@ export default function DeleteLandmark(props) {
           rtl={false}
           pauseOnFocusLoss
           draggable
-          pauseOnHover
           theme="dark"
+          style={{ fontSize: "medium" }}
         />
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
