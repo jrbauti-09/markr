@@ -77,7 +77,7 @@ export default function LandmarkEditForm() {
   const notify = () => {
     // if no errors.
     if (validationErrors.length > 0) {
-      toast.error("🦄 Wow so easy!", {
+      toast.error("Invalid form, please see error list.", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -181,13 +181,11 @@ export default function LandmarkEditForm() {
               className="post_landmark_form_button"
               type="submit"
               onClick={notify}
-              // disabled={validationErrors.length > 0}
             >
               Edit Landmark!
             </button>
           </form>
           <div>
-            {/* <button onClick={notify}>Notify!</button> */}
             <ToastContainer
               onClick={handleClick}
               position="top-right"

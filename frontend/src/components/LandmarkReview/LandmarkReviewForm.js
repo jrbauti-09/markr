@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, Link } from "react-router-dom";
 import { postReview } from "../../store/review";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./LandmarkReviewForm.css";
 
@@ -23,7 +25,10 @@ export default function LandmarkReviewForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    window.alert("Review posted.");
+
+    if (validationErrors.length > 0) {
+      return;
+    }
 
     const data = {
       userId: userSession.id,
@@ -32,9 +37,6 @@ export default function LandmarkReviewForm() {
     };
 
     dispatch(postReview(data));
-    setReview("");
-    setValidationErrors([]);
-    history.push(`/landmarks/${landMarkId}`);
   };
 
   useEffect(() => {
@@ -42,6 +44,39 @@ export default function LandmarkReviewForm() {
     if (!review.length) errors.push("Please include a review.");
     setValidationErrors(errors);
   }, [review]);
+
+  const notify = () => {
+    // if no errors.
+    if (validationErrors.length > 0) {
+      toast.error("Invalid review, please see error list.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.success("Successful edit, redirecting to details page..", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setTimeout(() => {
+        // console.log("Your timeout works!");
+        history.push(`/landmarks/${landMarkId}`);
+      }, 6000);
+    }
+  };
+
+  const handleClick = () => {
+    history.push(`/landmarks/${landMarkId}`);
+  };
 
   return (
     <div className="review_post_form_superdiv">
@@ -97,12 +132,26 @@ export default function LandmarkReviewForm() {
               <button
                 className="post_landmark_form_button"
                 type="submit"
-                disabled={validationErrors.length > 0}
+                onClick={notify}
               >
                 Post Review!
               </button>
             </div>
           </form>
+          <div>
+            <ToastContainer
+              onClick={handleClick}
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
+          </div>
         </div>
       </div>
     </div>
