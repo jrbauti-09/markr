@@ -4,7 +4,8 @@ import { useHistory, useLocation } from "react-router-dom";
 import { addLandmark } from "../../store/landmark";
 import Search from "./Search";
 import poweredByGoogle from "../../images/powered_by_google_on_white_hdpi.png";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./LandmarkForm.css";
 
 export default function LandmarkForm() {
@@ -21,7 +22,9 @@ export default function LandmarkForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    window.alert("Landmark posted!");
+    if (validationErrors.length > 0) {
+      return;
+    }
 
     const data = {
       userId: userSession.id,
@@ -33,7 +36,6 @@ export default function LandmarkForm() {
     };
 
     dispatch(addLandmark(data));
-    history.push("/dashboard");
   };
 
   useEffect(() => {
@@ -45,6 +47,38 @@ export default function LandmarkForm() {
     if (!lng) errors.push("Please provide longitude coordinates.");
     setValidationErrors(errors);
   }, [name, imageUrl, lat, lng]);
+
+  const notify = () => {
+    if (validationErrors.length > 0) {
+      toast.error("Invalid information sent. Please see list of errors.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.success("Landmark posted, redirecting back to the explore page..", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setTimeout(() => {
+        // console.log("Your timeout works!");
+        history.push("/dashboard");
+      }, 6000);
+    }
+  };
+
+  const handleClick = () => {
+    history.push("/dashboard");
+  };
 
   return (
     <div className="master_form_div">
@@ -120,11 +154,27 @@ export default function LandmarkForm() {
           <button
             className="post_landmark_form_button"
             type="submit"
-            disabled={validationErrors.length > 0}
+            onClick={notify}
+            // disabled={validationErrors.length > 0}
           >
             Post New Landmark!
           </button>
         </form>
+        <div>
+          {/* <button onClick={notify}>Notify!</button> */}
+          <ToastContainer
+            onClick={handleClick}
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </div>
       </div>
       <div>
         <Search setLat={setLat} setLng={setLng} />

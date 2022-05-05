@@ -5,6 +5,8 @@ import { editLandmark } from "../../store/landmark";
 import { getUserLandmarks } from "../../store/usercollection";
 import Search from "../LandmarkForm/Search";
 import poweredByGoogle from "../../images/powered_by_google_on_white_hdpi.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./LandmarkEditForm.css";
 
@@ -35,12 +37,12 @@ export default function LandmarkEditForm() {
   const [lng, setLng] = useState(landMarkToEdit?.lng);
   const [validationErrors, setValidationErrors] = useState([]);
 
-  //   console.log(userId, name, imageUrl, description, lat, lng);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    window.alert("Success.");
+    if (validationErrors.length > 0) {
+      return;
+    }
 
     const data = {
       userId,
@@ -53,7 +55,7 @@ export default function LandmarkEditForm() {
 
     const updatedLandMark = await dispatch(editLandmark(landMarkId, data));
 
-    history.push(`/landmarks/${landMarkId}`);
+    // history.push(`/landmarks/${landMarkId}`);
 
     // todo. dispatch to update thunk.
   };
@@ -72,94 +74,145 @@ export default function LandmarkEditForm() {
     dispatch(getUserLandmarks(userSession.id));
   }, [dispatch]);
 
+  const notify = () => {
+    // if no errors.
+    if (validationErrors.length > 0) {
+      toast.error("🦄 Wow so easy!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.success("Successful edit, redirecting to details page..", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setTimeout(() => {
+        // console.log("Your timeout works!");
+        history.push(`/landmarks/${landMarkId}`);
+      }, 6000);
+    }
+  };
+
+  const handleClick = () => {
+    history.push(`/landmarks/${landMarkId}`);
+  };
+
   return (
-    <div className="master_form_div">
-      <div className="landmark_form_container">
-        <form className="landmark_form" onSubmit={handleSubmit}>
-          <div className="div_header_form">
-            <h4 className="header_title">Edit Landmark!</h4>
+    <>
+      <div className="master_form_div">
+        <div className="landmark_form_container">
+          <form className="landmark_form" onSubmit={handleSubmit}>
+            <div className="div_header_form">
+              <h4 className="header_title">Edit Landmark!</h4>
+            </div>
+            <ul className="error_container">
+              {validationErrors.length > 0 &&
+                validationErrors.map((error) => (
+                  <li className="error" key={error}>
+                    {error}
+                  </li>
+                ))}
+            </ul>
+            <label className="label_form">Name of Landmark:</label>
+            <div className="form_element">
+              <input
+                type="text"
+                value={name}
+                className="landmark_form_input"
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Name Of Landmark"
+              ></input>
+            </div>
+            <label className="label_form">Image Url:</label>
+            <div className="form_element">
+              <input
+                type="text"
+                value={imageUrl}
+                className="landmark_form_input"
+                onChange={(e) => setImageUrl(e.target.value)}
+                placeholder="https://wallpaperaccess.com/full/276843.jpg"
+              ></input>
+            </div>
+            <label className="label_form">Description:</label>
+            <div className="form_element">
+              <textarea
+                type="text"
+                value={description}
+                className="landmark_form_input textarea"
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Description of landmark here.."
+              ></textarea>
+            </div>
+            <h2 style={{ padding: "10px" }}>
+              Please use the search input above the google map
+              <br></br>for coordinates.
+            </h2>
+            <label className="label_form">Latitude coordinate:</label>
+            <div className="form_element">
+              <input
+                type="text"
+                value={lat}
+                className="landmark_form_input"
+                onChange={(e) => setLat(e.target.value)}
+                placeholder="36.0544"
+              ></input>
+            </div>
+            <label className="label_form">Longitude coordinate:</label>
+            <div className="form_element">
+              <input
+                type="text"
+                value={lng}
+                className="landmark_form_input"
+                onChange={(e) => setLng(e.target.value)}
+                placeholder="112.1401"
+              ></input>
+            </div>
+            <button
+              className="post_landmark_form_button"
+              type="submit"
+              onClick={notify}
+              // disabled={validationErrors.length > 0}
+            >
+              Edit Landmark!
+            </button>
+          </form>
+          <div>
+            {/* <button onClick={notify}>Notify!</button> */}
+            <ToastContainer
+              onClick={handleClick}
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
           </div>
-          <ul className="error_container">
-            {validationErrors.length > 0 &&
-              validationErrors.map((error) => (
-                <li className="error" key={error}>
-                  {error}
-                </li>
-              ))}
-          </ul>
-          <label className="label_form">Name of Landmark:</label>
-          <div className="form_element">
-            <input
-              type="text"
-              value={name}
-              className="landmark_form_input"
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Name Of Landmark"
-            ></input>
+        </div>
+        <div>
+          <Search setLat={setLat} setLng={setLng} />
+          <div className="powered_by_google_container">
+            <img
+              src={poweredByGoogle}
+              alt="Google api"
+              className="powered_by_google"
+            ></img>
           </div>
-          <label className="label_form">Image Url:</label>
-          <div className="form_element">
-            <input
-              type="text"
-              value={imageUrl}
-              className="landmark_form_input"
-              onChange={(e) => setImageUrl(e.target.value)}
-              placeholder="https://wallpaperaccess.com/full/276843.jpg"
-            ></input>
-          </div>
-          <label className="label_form">Description:</label>
-          <div className="form_element">
-            <textarea
-              type="text"
-              value={description}
-              className="landmark_form_input textarea"
-              onChange={(e) => setDescription(e.target.value)}
-              placeholder="Description of landmark here.."
-            ></textarea>
-          </div>
-          <h2 style={{ padding: "10px" }}>
-            Please use the search input above the google map
-            <br></br>for coordinates.
-          </h2>
-          <label className="label_form">Latitude coordinate:</label>
-          <div className="form_element">
-            <input
-              type="text"
-              value={lat}
-              className="landmark_form_input"
-              onChange={(e) => setLat(e.target.value)}
-              placeholder="36.0544"
-            ></input>
-          </div>
-          <label className="label_form">Longitude coordinate:</label>
-          <div className="form_element">
-            <input
-              type="text"
-              value={lng}
-              className="landmark_form_input"
-              onChange={(e) => setLng(e.target.value)}
-              placeholder="112.1401"
-            ></input>
-          </div>
-          <button
-            className="post_landmark_form_button"
-            type="submit"
-            disabled={validationErrors.length > 0}
-          >
-            Edit Landmark!
-          </button>
-        </form>
-      </div>
-      <div>
-        <Search setLat={setLat} setLng={setLng} />
-        <div className="powered_by_google_container">
-          <img
-            src={poweredByGoogle}
-            alt="Google api"
-            className="powered_by_google"
-          ></img>
         </div>
       </div>
-    </div>
+    </>
   );
 }
