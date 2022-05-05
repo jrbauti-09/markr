@@ -83,6 +83,27 @@ export default function MainPage() {
           </div>
           <div className="footer_bot_row">
             <ul className="footer_bot_ul">
+              <li className="footer-text">
+                <a
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href="https://github.com/jrbauti-09/markr"
+                  style={{ textDecoration: "none" }}
+                >
+                  © 2022 | Markr
+                </a>
+              </li>
+              <li className="footer-text">
+                <span
+                  style={{
+                    marginLeft: "1em",
+                    marginRight: "1em",
+                    color: "white",
+                  }}
+                >
+                  Joshua Bautista
+                </span>
+              </li>
               <li>
                 <a
                   href="https://github.com/jrbauti-09"
