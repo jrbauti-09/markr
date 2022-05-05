@@ -1,5 +1,5 @@
 .gallery {
-  -webkit-column-count: 3;
+  -webkit-column-count: 4;
   -moz-column-count: 3;
   column-count: 4;
   -webkit-column-width: 33%;
