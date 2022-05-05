@@ -3,7 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import "./LoginForm.css";
-import Markr from "../../images/logo_black.png";
+import Markr from "../../images/logo_black.svg";
 
 export default function LoginFormPage() {
   const dispatch = useDispatch();
@@ -41,22 +41,11 @@ export default function LoginFormPage() {
   return (
     <>
       <div className="main_div_login">
-        <div className="nav_container_login">
-          <span className="markr_icon_login">
-            <Link to="/" className="markr_link">
-              <img
-                src={Markr}
-                className="markr_link_image"
-                alt="markR logo"
-              ></img>
-            </Link>
-          </span>
-        </div>
         <div className="form_section">
           <div className="form_case">
             <form onSubmit={handleSubmit}>
               <div className="form_header">
-                <img className="form_logo" alt="form_logo" src={Markr}></img>
+                {/* <img className="form_logo" alt="form_logo" src={Markr}></img> */}
                 <h3>Log in to Markr</h3>
               </div>
               <ul>

@@ -20,6 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 56vh;
 }
 
 /* .google_map_div {

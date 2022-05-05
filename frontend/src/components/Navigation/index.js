@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import Dashboard from "./Dashboard";
 import "./Navigation.css";
+import svg from "../../images/cropped_markR.svg";
+import Markr from "../../images/logo_black.svg";
 
 export default function Navigation({ isLoad }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -16,8 +18,20 @@ export default function Navigation({ isLoad }) {
   } else {
     sessionLinks = (
       <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink
+          className="nav_home"
+          activeClassName="nav_link_active"
+          to="/login"
+        >
+          Log In
+        </NavLink>
+        <NavLink
+          className="nav_home"
+          activeClassName="nav_link_active"
+          to="/signup"
+        >
+          Sign Up
+        </NavLink>
       </>
     );
   }
@@ -30,11 +44,19 @@ export default function Navigation({ isLoad }) {
             <div className="left_nav_container">
               <NavLink
                 className="nav_home"
-                activeClassName="nav_link_active"
+                activeClassName="nav_link_active_logo"
                 exact
                 to="/"
               >
-                Home
+                <img
+                  src={Markr}
+                  alt="logo"
+                  style={{
+                    width: "auto",
+                    height: "20rem",
+                    marginTop: "1.2rem",
+                  }}
+                ></img>
               </NavLink>
               {isLoad && sessionUser && (
                 <NavLink

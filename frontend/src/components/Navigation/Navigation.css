@@ -4,9 +4,10 @@ a {
 
 .nav_container {
   display: flex;
+  background-color: black;
   justify-content: space-between;
   width: 100%;
-  height: 50.9px;
+  height: 9rem;
   /* border: 1px solid red; */
 }
 

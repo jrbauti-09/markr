@@ -133,7 +133,6 @@ export default function Collections() {
                   alt="img"
                 ></img>
               </div>
-
               <h1 className="gallery_header">{landmark?.name}</h1>
             </div>
           );
