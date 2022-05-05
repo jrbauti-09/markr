@@ -173,6 +173,7 @@ export default function LandmarkForm() {
             pauseOnFocusLoss
             draggable
             pauseOnHover
+            theme="dark"
           />
         </div>
       </div>

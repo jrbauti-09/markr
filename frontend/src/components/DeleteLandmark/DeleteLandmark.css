@@ -2,3 +2,62 @@
   background-color: white;
   font-size: larger;
 }
+
+.confirm_delete {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #b40000;
+
+  padding: 10px;
+  border: none;
+  background-color: #256301;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 5px;
+  width: 80%;
+  margin: 0.2rem;
+}
+
+.confirm_delete:hover {
+  background-color: #408d14;
+  cursor: pointer;
+  /* border: 1px solid #00c896ce; */
+}
+
+.cancel_button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #b40000;
+  padding: 10px;
+  border: none;
+  background-color: #ff0000;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 5px;
+  width: 80%;
+  margin: 0.2rem;
+}
+
+.cancel_button:hover {
+  background-color: #ff2b2bce;
+  cursor: pointer;
+  /* border: 1px solid #00c896ce; */
+}
+
+.header_delete_landmark {
+  display: flex;
+  justify-content: center;
+  font-weight: 200;
+  background-color: beige;
+}
+
+.header_delete_div {
+  display: flex;
+  justify-content: center;
+  margin-left: 1.5em;
+  margin-bottom: 0.1em;
+}
+
+.delete_toast {
+  transform: translateY(-15em);
+}

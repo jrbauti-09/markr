@@ -47,7 +47,7 @@ export default function LandmarkReviewEditForm() {
   const handleDelete = async (e) => {
     // window.alert("Review was deleted.");
     //place id of review.
-    toast.success("Successful edit, redirecting to details page..", {
+    toast.success("Successful delete, redirecting to details page..", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -56,8 +56,8 @@ export default function LandmarkReviewEditForm() {
       draggable: true,
       progress: undefined,
     });
-    dispatch(deleteReview(reviewId));
     setTimeout(() => {
+      dispatch(deleteReview(reviewId));
       history.push(`/landmarks/${landMarkId}`);
     }, 6000);
   };
@@ -181,6 +181,7 @@ export default function LandmarkReviewEditForm() {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
+                theme="dark"
               />
             </div>
             <div style={{ display: "flex", justifyContent: "center" }}>

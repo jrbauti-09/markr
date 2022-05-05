@@ -58,7 +58,7 @@ export default function LandmarkReviewForm() {
         progress: undefined,
       });
     } else {
-      toast.success("Successful edit, redirecting to details page..", {
+      toast.success("Successful post, redirecting to details page..", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -150,6 +150,7 @@ export default function LandmarkReviewForm() {
               pauseOnFocusLoss
               draggable
               pauseOnHover
+              theme="dark"
             />
           </div>
         </div>
