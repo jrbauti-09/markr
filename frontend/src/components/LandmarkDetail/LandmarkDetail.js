@@ -20,11 +20,14 @@ import {
 // will use the .find method to locate the landmark we want.
 
 const mapContainerStyle = {
-  width: "600px",
-  height: "500px",
+  width: "50rem",
+  // width: "50rem",
+  // height: "500px",
+  height: "50rem",
   margin: "20px",
   borderRadius: "20px",
   boxShadow: "5px 3px 1.3px teal",
+  position: "relative",
 };
 
 // const center = {
