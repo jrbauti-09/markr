@@ -44,10 +44,20 @@ export const getLandmarks = () => async (dispatch) => {
 // Thunk for adding a landmark.
 
 export const addLandmark = (data) => async (dispatch) => {
+  const { userId, name, imageUrl, description, lat, lng } = data;
+  const formData = new FormData();
+  formData.append("userId", userId);
+  if (name) formData.append("name", name);
+  if (imageUrl) formData.append("imageUrl", imageUrl);
+  if (description) formData.append("description", description);
+  if (lat) formData.append("lat", lat);
+  if (lng) formData.append("lng", lng);
   const response = await csrfFetch("/api/landmarks", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+    body: formData,
   });
 
   if (response.ok) {

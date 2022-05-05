@@ -12,7 +12,9 @@ export default function LandmarkForm() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [name, setName] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  // const [imageUrl, setImageUrl] = useState(""); pre aws
+  const [validFile, setValidFile] = useState(true);
+  const [imageUrl, setImageUrl] = useState(null);
   const [description, setDescription] = useState("");
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
@@ -41,12 +43,11 @@ export default function LandmarkForm() {
   useEffect(() => {
     const errors = [];
     if (!name.length) errors.push("Please include Landmark name.");
-    if (!imageUrl.match(/^https?:\/\/.+\/.+$/) && imageUrl.length > 0)
-      errors.push("This is not a valid url.");
+    if (!validFile) errors.push("Selected file invalid");
     if (!lat) errors.push("Please provide latitude coordinates.");
     if (!lng) errors.push("Please provide longitude coordinates.");
     setValidationErrors(errors);
-  }, [name, imageUrl, lat, lng]);
+  }, [name, imageUrl, lat, lng, validFile]);
 
   const notify = () => {
     if (validationErrors.length > 0) {
@@ -80,6 +81,19 @@ export default function LandmarkForm() {
     history.push("/dashboard");
   };
 
+  const uploadFile = async (e) => {
+    const file = await e.target.files[0];
+    const fileType = await file?.type;
+    const fileTypeArray = await fileType.split("/");
+    if (fileTypeArray[0] !== "image") {
+      setValidFile(false);
+    } else {
+      setValidFile(true);
+      setValidationErrors([]);
+      setImageUrl(file);
+    }
+  };
+
   return (
     <div className="master_form_div">
       <div className="landmark_form_container">
@@ -110,11 +124,10 @@ export default function LandmarkForm() {
           <label className="label_form">Image Url:</label>
           <div className="form_element">
             <input
-              type="text"
-              value={imageUrl}
+              type="file"
               className="landmark_form_input"
-              onChange={(e) => setImageUrl(e.target.value)}
-              placeholder="https://wallpaperaccess.com/full/276843.jpg"
+              onChange={uploadFile}
+              accept="image/*"
             ></input>
           </div>
           <label className="label_form">Description:</label>

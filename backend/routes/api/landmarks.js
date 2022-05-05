@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const asyncHandler = require("express-async-handler");
 const db = require("../../db/models");
+const { singleMulterUpload, singlePublicFileUpload } = require("../../awsS3");
 
 const { User, Landmark, Review } = db;
 
@@ -24,9 +25,10 @@ router.get(
 // Will need csurfFetch.
 router.post(
   "/",
+  singleMulterUpload("imageUrl"),
   asyncHandler(async (req, res, next) => {
-    const { userId, name, imageUrl, description, lat, lng } = req.body;
-
+    const { userId, name, description, lat, lng } = req.body;
+    const imageUrl = await singlePublicFileUpload(req.file);
     const newLandmark = await Landmark.create({
       userId,
       name,
@@ -41,6 +43,27 @@ router.post(
     });
   })
 );
+
+// copy of original.
+// router.post(
+//   "/",
+//   asyncHandler(async (req, res, next) => {
+//     const { userId, name, imageUrl, description, lat, lng } = req.body;
+
+//     const newLandmark = await Landmark.create({
+//       userId,
+//       name,
+//       imageUrl,
+//       description,
+//       lat: parseFloat(lat),
+//       lng: parseFloat(lng),
+//     });
+
+//     res.json({
+//       newLandmark,
+//     });
+//   })
+// );
 
 // Get landmarks based on userId.
 // Checked on postman, working.
