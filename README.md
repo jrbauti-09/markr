@@ -4,7 +4,7 @@
 - Maps JavaScript API
 - Places API
 
-Inspired by [Flickr](https://www.flickr.com), Markr is n Landmark sharing app where people can post their favorite landmarks. Users can also interact with other user's landmark post by putting reviews and suggestions.
+Inspired by [Flickr](https://www.flickr.com), Markr is a Landmark sharing app where people can post their favorite landmarks. Users can also interact with other user's landmark post by putting reviews and suggestions.
 
 All features update the page the user is on without a refresh of the page through use of the Redux store.
 
