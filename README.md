@@ -42,6 +42,8 @@ All features update the page the user is on without a refresh of the page throug
 
 https://react-google-maps-api-docs.netlify.app/
 
+https://developers.google.com/maps/documentation/javascript/places-autocomplete
+
 # Getting started
 
 1. Clone this repository
